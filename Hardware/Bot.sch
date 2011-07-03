@@ -1,0 +1,360 @@
+EESchema Schematic File Version 2  date 03/07/2011 21:05:39
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 43  0
+EELAYER END
+$Descr A4 11700 8267
+encoding utf-8
+Sheet 1 1
+Title ""
+Date "3 jul 2011"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L CONN_1 P9
+U 1 1 4E10CB2E
+P 3100 2600
+F 0 "P9" H 3180 2600 40  0000 L CNN
+F 1 "CONN_1" H 3100 2655 30  0001 C CNN
+	1    3100 2600
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 P10
+U 1 1 4E10CB2C
+P 3100 2300
+F 0 "P10" H 3180 2300 40  0000 L CNN
+F 1 "CONN_1" H 3100 2355 30  0001 C CNN
+	1    3100 2300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7450 3000 7550 3000
+Wire Wire Line
+	3350 1400 3350 1500
+Connection ~ 3350 1500
+Wire Wire Line
+	3400 3450 3400 3350
+Connection ~ 3400 3350
+Wire Wire Line
+	3250 1500 3350 1500
+Wire Wire Line
+	3350 1500 4250 1500
+Wire Wire Line
+	4250 1500 5150 1500
+Wire Wire Line
+	5150 1500 6250 1500
+Wire Wire Line
+	6250 1500 7550 1500
+Wire Wire Line
+	7550 3000 7550 2900
+Wire Wire Line
+	3250 2600 3350 2600
+Wire Wire Line
+	3350 2300 3250 2300
+Connection ~ 6900 2300
+Wire Wire Line
+	6900 2300 6900 3350
+Connection ~ 7550 2300
+Wire Wire Line
+	7450 2300 7550 2300
+Wire Wire Line
+	7550 1500 7550 1600
+Wire Wire Line
+	6350 2300 6250 2300
+Connection ~ 4250 3350
+Connection ~ 4250 2750
+Wire Wire Line
+	4250 2750 5150 2750
+Wire Wire Line
+	5150 2750 5150 2500
+Connection ~ 4250 1500
+Wire Wire Line
+	4850 1600 5150 1600
+Wire Wire Line
+	5150 2100 5150 2000
+Wire Wire Line
+	5150 1600 5150 1500
+Wire Wire Line
+	5150 2000 4850 2000
+Wire Wire Line
+	3950 2000 4250 2000
+Wire Wire Line
+	4250 1500 4250 1600
+Wire Wire Line
+	4250 2500 4250 2750
+Wire Wire Line
+	4250 2750 4250 3350
+Wire Wire Line
+	4250 3350 4250 3450
+Wire Wire Line
+	3850 2300 3950 2300
+Wire Wire Line
+	4250 2000 4250 2100
+Wire Wire Line
+	4250 1600 3950 1600
+Wire Wire Line
+	3850 2600 4850 2600
+Wire Wire Line
+	4850 2600 4850 2300
+Connection ~ 5150 1500
+Wire Wire Line
+	7550 2200 7550 2300
+Wire Wire Line
+	7550 2300 7550 2400
+Wire Wire Line
+	6850 2300 6900 2300
+Wire Wire Line
+	6900 2300 6950 2300
+Wire Wire Line
+	6250 1500 6250 1600
+Connection ~ 6250 1500
+Wire Wire Line
+	6250 2400 6250 2300
+Wire Wire Line
+	6250 2300 6250 2200
+Connection ~ 6250 2300
+Wire Wire Line
+	6250 2900 6250 3000
+Wire Wire Line
+	6900 3350 4250 3350
+Wire Wire Line
+	4250 3350 3400 3350
+Wire Wire Line
+	3400 3350 3300 3350
+Wire Wire Line
+	6250 3000 6150 3000
+$Comp
+L PWR_FLAG #VCC1
+U 1 1 4E10CA30
+P 3350 1400
+F 0 "#VCC1" H 3350 1670 30  0001 C CNN
+F 1 "PWR_FLAG" H 3350 1630 30  0000 C CNN
+	1    3350 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L VCC #PWR1
+U 1 1 4E108733
+P 4250 1500
+F 0 "#PWR1" H 4250 1600 30  0001 C CNN
+F 1 "VCC" H 4250 1600 30  0000 C CNN
+	1    4250 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L PWR_FLAG #GND1
+U 1 1 4E10C99C
+P 3400 3450
+F 0 "#GND1" H 3400 3720 30  0001 C CNN
+F 1 "PWR_FLAG" H 3400 3680 30  0000 C CNN
+	1    3400 3450
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 GND1
+U 1 1 4E10C97C
+P 3150 3350
+F 0 "GND1" H 3230 3350 40  0000 L CNN
+F 1 "CONN_1" H 3150 3405 30  0001 C CNN
+	1    3150 3350
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 Vin1
+U 1 1 4E10C974
+P 3100 1500
+F 0 "Vin1" H 3180 1500 40  0000 L CNN
+F 1 "CONN_1" H 3100 1555 30  0001 C CNN
+	1    3100 1500
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 P3
+U 1 1 4E10C946
+P 7300 3000
+F 0 "P3" H 7380 3000 40  0000 L CNN
+F 1 "CONN_1" H 7300 3055 30  0001 C CNN
+	1    7300 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_1 P2
+U 1 1 4E10C93F
+P 6000 3000
+F 0 "P2" H 6080 3000 40  0000 L CNN
+F 1 "CONN_1" H 6000 3055 30  0001 C CNN
+	1    6000 3000
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R3
+U 1 1 4E10C7E0
+P 6250 2650
+F 0 "R3" V 6330 2650 50  0000 C CNN
+F 1 "560" V 6250 2650 50  0000 C CNN
+	1    6250 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L SW_PUSH SW1
+U 1 1 4E10C792
+P 6250 1900
+F 0 "SW1" H 6400 2010 50  0000 C CNN
+F 1 "Left Antenna" H 6250 1820 50  0000 C CNN
+	1    6250 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L R R6
+U 1 1 4E10C76B
+P 7550 2650
+F 0 "R6" V 7630 2650 50  0000 C CNN
+F 1 "560" V 7550 2650 50  0000 C CNN
+	1    7550 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L R R4
+U 1 1 4E10C70C
+P 6600 2300
+F 0 "R4" V 6680 2300 50  0000 C CNN
+F 1 "560" V 6600 2300 50  0000 C CNN
+	1    6600 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L R R5
+U 1 1 4E10C6F5
+P 7200 2300
+F 0 "R5" V 7280 2300 50  0000 C CNN
+F 1 "560" V 7200 2300 50  0000 C CNN
+	1    7200 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SW_PUSH SW2
+U 1 1 4E10C693
+P 7550 1900
+F 0 "SW2" H 7700 2010 50  0000 C CNN
+F 1 "Right Antenna" H 7550 1820 50  0000 C CNN
+	1    7550 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L BC237 Q2
+U 1 1 4E108A0B
+P 5050 2300
+F 0 "Q2" H 5250 2200 50  0000 C CNN
+F 1 "P2N2222A" H 5400 2350 50  0000 C CNN
+F 2 "TO92-EBC" H 5240 2300 30  0001 C CNN
+	1    5050 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 4E108A0A
+P 3600 2600
+F 0 "R2" V 3680 2600 50  0000 C CNN
+F 1 "2.2K" V 3600 2600 50  0000 C CNN
+	1    3600 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L MOTOR M2
+U 1 1 4E108A08
+P 5150 1800
+F 0 "M2" H 5250 1950 60  0000 C CNN
+F 1 "Right Wheel" V 5350 1800 60  0000 C CNN
+	1    5150 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L DIODE D2
+U 1 1 4E108A06
+P 4850 1800
+F 0 "D2" H 4850 1900 40  0000 C CNN
+F 1 "1N4001" H 4850 1700 40  0000 C CNN
+	1    4850 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L DIODE D1
+U 1 1 4E108750
+P 3950 1800
+F 0 "D1" H 3950 1900 40  0000 C CNN
+F 1 "1N4001" H 3950 1700 40  0000 C CNN
+	1    3950 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L MOTOR M1
+U 1 1 4E1085FF
+P 4250 1800
+F 0 "M1" H 4350 1950 60  0000 C CNN
+F 1 "Left Wheel" V 4450 1800 60  0000 C CNN
+	1    4250 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR2
+U 1 1 4E108510
+P 4250 3450
+F 0 "#PWR2" H 4250 3450 30  0001 C CNN
+F 1 "GND" H 4250 3380 30  0001 C CNN
+	1    4250 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 4E1084E4
+P 3600 2300
+F 0 "R1" V 3680 2300 50  0000 C CNN
+F 1 "2.2K" V 3600 2300 50  0000 C CNN
+	1    3600 2300
+	0    1    1    0   
+$EndComp
+$Comp
+L BC237 Q1
+U 1 1 4E1084CF
+P 4150 2300
+F 0 "Q1" H 4350 2200 50  0000 C CNN
+F 1 "P2N2222A" H 4500 2350 50  0000 C CNN
+F 2 "TO92-EBC" H 4340 2300 30  0001 C CNN
+	1    4150 2300
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

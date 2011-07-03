@@ -1,0 +1,5 @@
+$savepcb.brd
+*.000
+*.bak
+*.bck
+*-cache.*
