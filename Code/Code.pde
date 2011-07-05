@@ -1,12 +1,10 @@
+#include <SoftwareSerial.h>
+
 #include "Antenna.h"
 #include "Wheels.h"
 
 Antenna antenna(2, 3);
 Wheels wheels(9, 10);
-
-const int BarClock = 5;
-const int BarLatch = 6;
-const int BarData = 7;
 
 int incomingByte = 0;
 
@@ -14,10 +12,6 @@ void setup()
 {
   Serial.begin(9600);
   Serial.println("Hello!");
-
-  pinMode(BarClock, OUTPUT);
-  pinMode(BarLatch, OUTPUT);
-  pinMode(BarData, OUTPUT);
 }
 
 void loop()
@@ -43,20 +37,6 @@ void loop()
   wheels.update();
 
   antenna.reset();
-
-  byte barDisplay = 0;
-
-  for (int i = 0; i < 8; i++)
-  {
-    if (wheels.getSpeed() > (i * 50)) 
-    {
-      bitSet(barDisplay, i);
-    }
-  }
-
-  digitalWrite(BarLatch, LOW);
-  shiftOut(BarData, BarClock, MSBFIRST, barDisplay);
-  digitalWrite(BarLatch, HIGH);
 
   if (Serial.available() > 0)
   {
