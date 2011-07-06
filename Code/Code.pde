@@ -1,42 +1,56 @@
 #include <SoftwareSerial.h>
 
 #include "Antenna.h"
+#include "Eyes.h"
 #include "Wheels.h"
 
 Antenna antenna(2, 3);
 Wheels wheels(9, 10);
+Eyes eyes(7);
 
 int incomingByte = 0;
 
 void setup()
 {
   Serial.begin(9600);
-  Serial.println("Hello!");
+  Serial.println("Hello.");
+  delay(2000);
+  Serial.println("Ready!");
 }
 
 void loop()
 {
-  antenna.update();
-
+  eyes.update();
+//  antenna.update();
+  
   // if we're parked, then tapping the antenna starts us up
   //if ((antenna.triggered() == true) && (wheels.getSpeed() == 0))
-  if (antenna.triggered() == true)
+//  if (antenna.triggered() == true)
+//  {
+//    if (wheels.getSpeed() == 0)
+//    {
+//      Serial.println("Setting off...");
+//      wheels.setSpeed(255, 5000);
+//    }
+//    else
+//    {
+//      Serial.println("Hit something!");
+//      wheels.setSpeed(0);
+//    }
+//  }
+  
+  if (eyes.getDistance() < 5)
   {
-    if (wheels.getSpeed() == 0)
+    if (wheels.getSpeed() > 0)
     {
-      Serial.println("Setting off...");
-      wheels.setSpeed(255, 5000);
-    }
-    else
-    {
-      Serial.println("Hit something!");
-      wheels.setSpeed(0);
+      Serial.println("Object approaching too close!");
+      wheels.setSpeed(0, 200);
     }
   }
 
   wheels.update();
 
-  antenna.reset();
+//  antenna.reset();
 
   if (Serial.available() > 0)
   {
