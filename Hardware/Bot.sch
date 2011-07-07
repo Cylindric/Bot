@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 07/07/2011 17:54:07
+EESchema Schematic File Version 2  date 07/07/2011 19:24:56
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -45,9 +45,9 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-NoConn ~ 2150 3100
-NoConn ~ 2150 3000
-NoConn ~ 2150 2300
+NoConn ~ 2150 2500
+Wire Wire Line
+	5250 2450 5050 2450
 Connection ~ 2700 3550
 Connection ~ 2300 3200
 Wire Wire Line
@@ -89,21 +89,7 @@ Wire Wire Line
 Wire Wire Line
 	2800 2700 2150 2700
 Wire Wire Line
-	5250 2550 5150 2550
-Wire Wire Line
-	5150 2550 5150 2500
-Wire Wire Line
-	5150 2500 5050 2500
-Wire Wire Line
-	5250 2150 5150 2150
-Wire Wire Line
-	5150 2150 5150 2100
-Wire Wire Line
-	5150 2100 5050 2100
-Wire Wire Line
-	5200 2000 5200 2050
-Wire Wire Line
-	5200 2050 5250 2050
+	5050 2150 5250 2150
 Wire Wire Line
 	6850 2300 6750 2300
 Wire Wire Line
@@ -196,19 +182,15 @@ Wire Wire Line
 Wire Wire Line
 	6800 2200 6850 2200
 Wire Wire Line
-	5250 2450 5200 2450
-Wire Wire Line
-	5200 2450 5200 2400
-Wire Wire Line
 	5250 2250 5150 2250
 Wire Wire Line
 	5150 2250 5150 2300
 Wire Wire Line
 	5150 2300 5050 2300
 Wire Wire Line
-	5050 2700 5150 2700
+	5050 2750 5150 2750
 Wire Wire Line
-	5150 2700 5150 2650
+	5150 2750 5150 2650
 Wire Wire Line
 	5150 2650 5250 2650
 Wire Wire Line
@@ -225,7 +207,6 @@ Wire Wire Line
 	10050 2300 10150 2300
 Connection ~ 2450 1900
 Connection ~ 2250 1900
-Connection ~ 5200 2400
 Wire Wire Line
 	2600 1900 2150 1900
 Connection ~ 2950 1750
@@ -249,6 +230,24 @@ Wire Wire Line
 	2550 3200 2550 3550
 Wire Wire Line
 	2550 3550 2900 3550
+Wire Wire Line
+	5250 2050 5150 2050
+Wire Wire Line
+	5150 2050 5150 2000
+Wire Wire Line
+	5150 2000 5050 2000
+Wire Wire Line
+	5250 2550 5100 2550
+Wire Wire Line
+	5100 2550 5100 2600
+Wire Wire Line
+	5100 2600 5050 2600
+Text GLabel 5050 2750 0    60   Input ~ 0
+D13
+Text GLabel 5050 2600 0    60   Input ~ 0
+D12
+Text GLabel 5050 2150 0    60   Input ~ 0
+D7
 Text GLabel 2900 3400 2    60   Input ~ 0
 D13
 Text GLabel 2900 3250 2    60   Input ~ 0
@@ -351,30 +350,12 @@ Text GLabel 2900 2950 2    60   Input ~ 0
 D10 PWM
 Text GLabel 2900 2500 2    60   Input ~ 0
 D6 PWM
-Text GLabel 5050 2700 0    60   Input ~ 0
+Text GLabel 5050 2450 0    60   Input ~ 0
 D11 PWM
-Text GLabel 5050 2500 0    60   Input ~ 0
+Text GLabel 5050 2000 0    60   Input ~ 0
 D10 PWM
 Text GLabel 5050 2300 0    60   Input ~ 0
-D6 PWM
-$Comp
-L +5V #PWR07
-U 1 1 4E15D7E6
-P 5200 2400
-F 0 "#PWR07" H 5200 2490 20  0001 C CNN
-F 1 "+5V" H 5200 2490 30  0000 C CNN
-	1    5200 2400
-	1    0    0    -1  
-$EndComp
-$Comp
-L +5V #PWR08
-U 1 1 4E15D7E3
-P 5200 2000
-F 0 "#PWR08" H 5200 2090 20  0001 C CNN
-F 1 "+5V" H 5200 2090 30  0000 C CNN
-	1    5200 2000
-	1    0    0    -1  
-$EndComp
+D8
 $Comp
 L SN754410 H1
 U 1 1 4E15AF7A
@@ -386,13 +367,11 @@ F 1 "SN754410" V 5900 3600 60  0000 C CNN
 $EndComp
 Text GLabel 2900 2350 2    60   Input ~ 0
 D5 PWM
-Text GLabel 5050 2100 0    60   Input ~ 0
-D5 PWM
 $Comp
-L +5V #PWR09
+L +5V #PWR07
 U 1 1 4E15B065
 P 5650 1500
-F 0 "#PWR09" H 5650 1590 20  0001 C CNN
+F 0 "#PWR07" H 5650 1590 20  0001 C CNN
 F 1 "+5V" H 5650 1590 30  0000 C CNN
 	1    5650 1500
 	1    0    0    -1  
@@ -407,10 +386,10 @@ F 1 "MOTORS" V 7250 2350 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L GND #PWR08
 U 1 1 4E15AFCE
 P 5950 3400
-F 0 "#PWR010" H 5950 3400 30  0001 C CNN
+F 0 "#PWR08" H 5950 3400 30  0001 C CNN
 F 1 "GND" H 5950 3330 30  0001 C CNN
 	1    5950 3400
 	1    0    0    -1  
@@ -427,23 +406,23 @@ F 1 "ANTENNA" V 10550 2300 40  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9950 2350 0    60   Input ~ 0
-D8
+D5 PWM
 Text GLabel 2650 1600 2    60   Input ~ 0
 5V
 $Comp
-L PWR_FLAG #FLG011
+L PWR_FLAG #FLG09
 U 1 1 4E159BD4
 P 2700 3550
-F 0 "#FLG011" H 2700 3820 30  0001 C CNN
+F 0 "#FLG09" H 2700 3820 30  0001 C CNN
 F 1 "PWR_FLAG" H 2700 3780 30  0000 C CNN
 	1    2700 3550
 	1    0    0    1   
 $EndComp
 $Comp
-L GND #PWR012
+L GND #PWR010
 U 1 1 4E159BC0
 P 2300 3250
-F 0 "#PWR012" H 2300 3250 30  0001 C CNN
+F 0 "#PWR010" H 2300 3250 30  0001 C CNN
 F 1 "GND" H 2300 3180 30  0001 C CNN
 	1    2300 3250
 	1    0    0    -1  
@@ -453,12 +432,12 @@ D3 PWM
 Text GLabel 2900 1900 2    60   Input ~ 0
 D2
 Text GLabel 9950 2150 0    60   Input ~ 0
-D7
+D4
 $Comp
-L GND #PWR013
+L GND #PWR011
 U 1 1 4E159ADB
 P 10050 2500
-F 0 "#PWR013" H 10050 2500 30  0001 C CNN
+F 0 "#PWR011" H 10050 2500 30  0001 C CNN
 F 1 "GND" H 10050 2430 30  0001 C CNN
 	1    10050 2500
 	1    0    0    -1  
@@ -466,10 +445,10 @@ $EndComp
 Text GLabel 8400 2300 0    60   Input ~ 0
 D2
 $Comp
-L GND #PWR014
+L GND #PWR012
 U 1 1 4E15672C
 P 8500 2500
-F 0 "#PWR014" H 8500 2500 30  0001 C CNN
+F 0 "#PWR012" H 8500 2500 30  0001 C CNN
 F 1 "GND" H 8500 2430 30  0001 C CNN
 	1    8500 2500
 	1    0    0    -1  
@@ -484,19 +463,19 @@ F 1 "PING)))" V 9000 2300 40  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L PWR_FLAG #VCC015
+L PWR_FLAG #VCC013
 U 1 1 4E139DC9
 P 2450 1900
-F 0 "#VCC015" H 2450 2170 30  0001 C CNN
+F 0 "#VCC013" H 2450 2170 30  0001 C CNN
 F 1 "PWR_FLAG" H 2450 2130 30  0000 C CNN
 	1    2450 1900
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5V #PWR016
+L +5V #PWR014
 U 1 1 4E139D79
 P 8500 2100
-F 0 "#PWR016" H 8500 2190 20  0001 C CNN
+F 0 "#PWR014" H 8500 2190 20  0001 C CNN
 F 1 "+5V" H 8500 2190 30  0000 C CNN
 	1    8500 2100
 	1    0    0    -1  

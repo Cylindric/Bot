@@ -1,59 +1,117 @@
-# EESchema Netlist Version 1.1 created  07/07/2011 17:57:02
+# EESchema Netlist Version 1.1 created  07/07/2011 18:38:54
 (
- ( /4E15AF7A DIP-16__300 H1 SN754410
-  ( 1 5V )
-  ( 2 D5_PWM )
-  ( 3 N-000018 )
-  ( 4 GND )
-  ( 5 GND )
-  ( 6 N-000016 )
-  ( 7 D6_PWM )
-  ( 8 Vin )
-  ( 9 5V )
-  ( 10 D10_PWM )
-  ( 11 N-000015 )
-  ( 12 GND )
-  ( 13 GND )
-  ( 14 D11_PWM )
-  ( 15 N-000017 )
-  ( 16 5V )
+ ( /4E15E36D $noname  P1 ARDUINO {Lib=CONN_14}
+  (    1 5V )
+  (    2 Vin )
+  (    3 D2 )
+  (    4 D3_PWM )
+  (    5 ? )
+  (    6 ? )
+  (    7 ? )
+  (    8 D7 )
+  (    9 D8 )
+  (   10 D10_PWM )
+  (   11 D11_PWM )
+  (   12 D12 )
+  (   13 D13 )
+  (   14 GND )
  )
- ( /4E1566F9 PIN_ARRAY_3X1 K1 PING)))
-  ( 1 5V )
-  ( 2 D2 )
-  ( 3 GND )
+ ( /4E15E31F $noname  K3 SERVO {Lib=CONN_3}
+  (    1 5V )
+  (    2 D3_PWM )
+  (    3 GND )
  )
- ( /4E15A99C PIN_ARRAY_3X1 K2 ANTENNA
-  ( 1 D7 )
-  ( 2 D8 )
-  ( 3 GND )
+ ( /4E15AF7A $noname  H1 SN754410 {Lib=SN754410}
+  (    1 D10_PWM )
+  (    2 D7 )
+  (    3 N-000015 )
+  (    4 GND )
+  (    5 GND )
+  (    6 N-000017 )
+  (    7 D8 )
+  (    8 Vin )
+  (    9 D11_PWM )
+  (   10 D12 )
+  (   11 N-000016 )
+  (   12 GND )
+  (   13 GND )
+  (   14 N-000018 )
+  (   15 D13 )
+  (   16 5V )
  )
- ( /4E15E31F PIN_ARRAY_3X1 K3 SERVO
-  ( 1 5V )
-  ( 2 D3_PWM )
-  ( 3 GND )
+ ( /4E15B023 $noname  P2 MOTORS {Lib=CONN_4}
+  (    1 N-000015 )
+  (    2 N-000017 )
+  (    3 N-000016 )
+  (    4 N-000018 )
  )
- ( /4E15E36D pin_array_8x2 P1 ARDUINO
-  ( 1 5V )
-  ( 2 Vin )
-  ( 3 D2 )
-  ( 4 D3_PWM )
-  ( 5 ? )
-  ( 6 D5_PWM )
-  ( 7 D6_PWM )
-  ( 8 D7 )
-  ( 9 D8 )
-  ( 10 D10_PWM )
-  ( 11 D11_PWM )
-  ( 12 ? )
-  ( 13 ? )
-  ( 14 GND )
+ ( /4E15A99C $noname  K2 ANTENNA {Lib=CONN_3}
+  (    1 D7 )
+  (    2 D8 )
+  (    3 GND )
  )
- ( /4E15B023 PIN_ARRAY_4x1 P2 MOTORS
-  ( 1 N-000018 )
-  ( 2 N-000016 )
-  ( 3 N-000015 )
-  ( 4 N-000017 )
+ ( /4E1566F9 $noname  K1 PING))) {Lib=CONN_3}
+  (    1 5V )
+  (    2 D2 )
+  (    3 GND )
  )
 )
 *
+{ Pin List by Nets
+Net 1 "5V" "5V"
+ H1 16
+ P1 1
+ K3 1
+ K1 1
+Net 2 "GND" "GND"
+ K2 3
+ H1 5
+ H1 4
+ K1 3
+ H1 13
+ H1 12
+ K3 3
+ P1 14
+Net 3 "D3 PWM" "D3 PWM"
+ K3 2
+ P1 4
+Net 4 "Vin" "Vin"
+ H1 8
+ P1 2
+Net 5 "D11 PWM" "D11 PWM"
+ H1 9
+ P1 11
+Net 6 "D12" "D12"
+ P1 12
+ H1 10
+Net 7 "D13" "D13"
+ P1 13
+ H1 15
+Net 9 "D8" "D8"
+ H1 7
+ K2 2
+ P1 9
+Net 12 "D10 PWM" "D10 PWM"
+ P1 10
+ H1 1
+Net 13 "D2" "D2"
+ P1 3
+ K1 2
+Net 14 "D7" "D7"
+ P1 8
+ K2 1
+ H1 2
+Net 15 "" ""
+ H1 3
+ P2 1
+Net 16 "" ""
+ H1 11
+ P2 3
+Net 17 "" ""
+ P2 2
+ H1 6
+Net 18 "" ""
+ H1 14
+ P2 4
+}
+#End
