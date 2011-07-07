@@ -1,115 +1,38 @@
-Cmp-Mod V01 Created by CvPCB (2011-04-29 BZR 2986)-stable date = 06/07/2011 17:41:08
+Cmp-Mod V01 Created by CvPCB (2011-04-29 BZR 2986)-stable date = 07/07/2011 14:15:45
 
 BeginCmp
-TimeStamp = /4E108750;
-Reference = D1;
-ValeurCmp = 1N4001;
-IdModule  = D3;
+TimeStamp = /4E15AF7A;
+Reference = H1;
+ValeurCmp = SN754410;
+IdModule  = DIP-16__300;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E108A06;
-Reference = D2;
-ValeurCmp = 1N4001;
-IdModule  = D3;
+TimeStamp = /4E1566F9;
+Reference = K1;
+ValeurCmp = PING)));
+IdModule  = PIN_ARRAY_3X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E10C93F;
+TimeStamp = /4E15A99C;
+Reference = K2;
+ValeurCmp = ANTENNA;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E158BEF;
+Reference = P1;
+ValeurCmp = ARDUINO;
+IdModule  = pin_array_8x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E15B023;
 Reference = P2;
-ValeurCmp = CONN_1;
-IdModule  = 1pin;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C946;
-Reference = P3;
-ValeurCmp = CONN_1;
-IdModule  = 1pin;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10CB2E;
-Reference = P9;
-ValeurCmp = CONN_1;
-IdModule  = 1pin;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10CB2C;
-Reference = P10;
-ValeurCmp = CONN_1;
-IdModule  = 1pin;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E1084CF;
-Reference = Q1;
-ValeurCmp = P2N2222A;
-IdModule  = TO92-EBC;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E108A0B;
-Reference = Q2;
-ValeurCmp = P2N2222A;
-IdModule  = TO92-EBC;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E1084E4;
-Reference = R1;
-ValeurCmp = 2.2K;
-IdModule  = R3;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E108A0A;
-Reference = R2;
-ValeurCmp = 2.2K;
-IdModule  = R3;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C7E0;
-Reference = R3;
-ValeurCmp = 560;
-IdModule  = R3;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C70C;
-Reference = R4;
-ValeurCmp = 560;
-IdModule  = R3;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C6F5;
-Reference = R5;
-ValeurCmp = 560;
-IdModule  = R3;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C76B;
-Reference = R6;
-ValeurCmp = 560;
-IdModule  = R3;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C792;
-Reference = SW1;
-ValeurCmp = Left_Antenna;
-IdModule  = 1pin;
-EndCmp
-
-BeginCmp
-TimeStamp = /4E10C693;
-Reference = SW2;
-ValeurCmp = Right_Antenna;
-IdModule  = 1pin;
+ValeurCmp = MOTORS;
+IdModule  = PIN_ARRAY_4x1;
 EndCmp
 
 EndListe

@@ -1,125 +1,50 @@
-# EESchema Netlist Version 1.1 created  06/07/2011 17:41:08
+# EESchema Netlist Version 1.1 created  07/07/2011 14:15:45
 (
- ( /4E108750 D3 D1 1N4001
-  ( 1 N-000006 )
-  ( 2 +9V )
+ ( /4E15AF7A DIP-16__300 H1 SN754410
+  ( 1 D4 )
+  ( 2 N-000009 )
+  ( 3 N-000017 )
+  ( 4 GND )
+  ( 5 GND )
+  ( 6 N-000008 )
+  ( 7 N-000010 )
+  ( 8 5V )
+  ( 9 ? )
+  ( 10 ? )
+  ( 11 ? )
+  ( 12 GND )
+  ( 13 GND )
+  ( 14 ? )
+  ( 15 ? )
+  ( 16 5V )
  )
- ( /4E108A06 D3 D2 1N4001
-  ( 1 N-000008 )
-  ( 2 +9V )
+ ( /4E1566F9 PIN_ARRAY_3X1 K1 PING)))
+  ( 1 5V )
+  ( 2 D1 )
+  ( 3 GND )
  )
- ( /4E10C93F 1pin P2 CONN_1
-  ( 1 N-000001 )
+ ( /4E15A99C PIN_ARRAY_3X1 K2 ANTENNA
+  ( 1 D2 )
+  ( 2 D3 )
+  ( 3 GND )
  )
- ( /4E10C946 1pin P3 CONN_1
-  ( 1 N-000002 )
+ ( /4E158BEF pin_array_8x2 P1 ARDUINO
+  ( 1 5V )
+  ( 2 D1 )
+  ( 3 D2 )
+  ( 4 D3 )
+  ( 5 D4 )
+  ( 6 ? )
+  ( 7 ? )
+  ( 8 ? )
+  ( 9 ? )
+  ( 10 GND )
  )
- ( /4E10CB2E 1pin P9 CONN_1
-  ( 1 N-000004 )
- )
- ( /4E10CB2C 1pin P10 CONN_1
-  ( 1 N-000003 )
- )
- ( /4E1084CF TO92-EBC Q1 P2N2222A
-  ( B N-000005 )
-  ( C N-000006 )
-  ( E GND )
- )
- ( /4E108A0B TO92-EBC Q2 P2N2222A
-  ( B N-000009 )
-  ( C N-000008 )
-  ( E GND )
- )
- ( /4E1084E4 R3 R1 2.2K
-  ( 1 N-000005 )
-  ( 2 N-000003 )
- )
- ( /4E108A0A R3 R2 2.2K
+ ( /4E15B023 PIN_ARRAY_4x1 P2 MOTORS
   ( 1 N-000009 )
-  ( 2 N-000004 )
- )
- ( /4E10C7E0 R3 R3 560
-  ( 1 N-000001 )
-  ( 2 N-000010 )
- )
- ( /4E10C70C R3 R4 560
-  ( 1 N-000010 )
-  ( 2 GND )
- )
- ( /4E10C6F5 R3 R5 560
-  ( 1 GND )
-  ( 2 N-000012 )
- )
- ( /4E10C76B R3 R6 560
-  ( 1 N-000002 )
-  ( 2 N-000012 )
- )
- ( /4E10C792 1pin SW1 Left_Antenna
-  ( 1 +5V )
-  ( 2 N-000010 )
- )
- ( /4E10C693 1pin SW2 Right_Antenna
-  ( 1 +5V )
-  ( 2 N-000012 )
+  ( 2 N-000017 )
+  ( 3 N-000008 )
+  ( 4 N-000010 )
  )
 )
 *
-{ Allowed footprints by component:
-$component D1
- D?
- S*
-$endlist
-$component D2
- D?
- S*
-$endlist
-$component Q1
- TO92-EBC
-$endlist
-$component Q2
- TO92-EBC
-$endlist
-$component R1
- R?
- SM0603
- SM0805
- R?-*
- SM1206
-$endlist
-$component R2
- R?
- SM0603
- SM0805
- R?-*
- SM1206
-$endlist
-$component R3
- R?
- SM0603
- SM0805
- R?-*
- SM1206
-$endlist
-$component R4
- R?
- SM0603
- SM0805
- R?-*
- SM1206
-$endlist
-$component R5
- R?
- SM0603
- SM0805
- R?-*
- SM1206
-$endlist
-$component R6
- R?
- SM0603
- SM0805
- R?-*
- SM1206
-$endlist
-$endfootprintlist
-}
