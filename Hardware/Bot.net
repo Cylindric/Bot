@@ -1,24 +1,24 @@
-# EESchema Netlist Version 1.1 created  07/07/2011 18:38:54
+# EESchema Netlist Version 1.1 created  07/07/2011 23:31:32
 (
  ( /4E15E36D $noname  P1 ARDUINO {Lib=CONN_14}
   (    1 5V )
   (    2 Vin )
   (    3 D2 )
   (    4 D3_PWM )
-  (    5 ? )
-  (    6 ? )
+  (    5 D4 )
+  (    6 D5_PWM )
   (    7 ? )
   (    8 D7 )
   (    9 D8 )
   (   10 D10_PWM )
   (   11 D11_PWM )
   (   12 D12 )
-  (   13 D13 )
+  (   13 ? )
   (   14 GND )
  )
  ( /4E15E31F $noname  K3 SERVO {Lib=CONN_3}
   (    1 5V )
-  (    2 D3_PWM )
+  (    2 D11_PWM )
   (    3 GND )
  )
  ( /4E15AF7A $noname  H1 SN754410 {Lib=SN754410}
@@ -27,27 +27,27 @@
   (    3 N-000015 )
   (    4 GND )
   (    5 GND )
-  (    6 N-000017 )
+  (    6 N-000019 )
   (    7 D8 )
   (    8 Vin )
-  (    9 D11_PWM )
-  (   10 D12 )
-  (   11 N-000016 )
+  (    9 D3_PWM )
+  (   10 D4 )
+  (   11 N-000017 )
   (   12 GND )
   (   13 GND )
   (   14 N-000018 )
-  (   15 D13 )
+  (   15 D5_PWM )
   (   16 5V )
  )
  ( /4E15B023 $noname  P2 MOTORS {Lib=CONN_4}
   (    1 N-000015 )
-  (    2 N-000017 )
-  (    3 N-000016 )
+  (    2 N-000019 )
+  (    3 N-000017 )
   (    4 N-000018 )
  )
  ( /4E15A99C $noname  K2 ANTENNA {Lib=CONN_3}
-  (    1 D7 )
-  (    2 D8 )
+  (    1 D12 )
+  (    2 ? )
   (    3 GND )
  )
  ( /4E1566F9 $noname  K1 PING))) {Lib=CONN_3}
@@ -59,59 +59,60 @@
 *
 { Pin List by Nets
 Net 1 "5V" "5V"
- H1 16
  P1 1
+ H1 16
  K3 1
  K1 1
 Net 2 "GND" "GND"
- K2 3
- H1 5
  H1 4
- K1 3
+ H1 5
+ K2 3
  H1 13
  H1 12
+ K1 3
  K3 3
  P1 14
-Net 3 "D3 PWM" "D3 PWM"
+Net 3 "D11 PWM" "D11 PWM"
  K3 2
- P1 4
+ P1 11
 Net 4 "Vin" "Vin"
  H1 8
  P1 2
-Net 5 "D11 PWM" "D11 PWM"
- H1 9
- P1 11
-Net 6 "D12" "D12"
- P1 12
+Net 5 "D4" "D4"
+ P1 5
  H1 10
-Net 7 "D13" "D13"
- P1 13
+Net 6 "D5 PWM" "D5 PWM"
+ P1 6
  H1 15
-Net 9 "D8" "D8"
+Net 8 "D8" "D8"
  H1 7
- K2 2
  P1 9
-Net 12 "D10 PWM" "D10 PWM"
- P1 10
+Net 10 "D10 PWM" "D10 PWM"
  H1 1
+ P1 10
+Net 11 "D12" "D12"
+ P1 12
+ K2 1
 Net 13 "D2" "D2"
  P1 3
  K1 2
 Net 14 "D7" "D7"
  P1 8
- K2 1
  H1 2
 Net 15 "" ""
- H1 3
  P2 1
-Net 16 "" ""
+ H1 3
+Net 16 "D3 PWM" "D3 PWM"
+ H1 9
+ P1 4
+Net 17 "" ""
  H1 11
  P2 3
-Net 17 "" ""
- P2 2
- H1 6
 Net 18 "" ""
- H1 14
  P2 4
+ H1 14
+Net 19 "" ""
+ H1 6
+ P2 2
 }
 #End

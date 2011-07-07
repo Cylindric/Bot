@@ -25,6 +25,7 @@ void Eyes::update()
     pinMode(_pingPin, INPUT);
     _distance = pulseIn(_pingPin, HIGH);
     _lastPing = millis();
+    //Serial.print("EYES: Distance = "); Serial.println((_distance / 58));
   }
 }
 

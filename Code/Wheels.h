@@ -4,7 +4,7 @@
 class Wheels
 {
   public:
-    Wheels(int leftWheel, int rightWheel);
+    Wheels(int leftWheelA, int leftWheelB, int leftWheelP, int rightWheelA, int rightWheelB, int rightWheelP);
     void update();
     void setDirection(int direction);
     int getSpeed();
@@ -13,8 +13,12 @@ class Wheels
     void determineMin();
     
   private:
-    int _leftWheel;
-    int _rightWheel;
+    int _leftWheelA;
+    int _leftWheelB;
+    int _leftWheelP;
+    int _rightWheelA;
+    int _rightWheelB;
+    int _rightWheelP;
     int _minPower;
     int _maxPower;
 

@@ -12,7 +12,7 @@ class Eyes
     int _pingPin;
     int _distance;
     unsigned long _lastPing;
-    static const int _pingInterval = 500;
+    static const int _pingInterval = 100;
 };
 
 

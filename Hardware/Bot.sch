@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 07/07/2011 19:24:56
+EESchema Schematic File Version 2  date 07/07/2011 23:31:40
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -243,9 +243,9 @@ Wire Wire Line
 Wire Wire Line
 	5100 2600 5050 2600
 Text GLabel 5050 2750 0    60   Input ~ 0
-D13
+D5 PWM
 Text GLabel 5050 2600 0    60   Input ~ 0
-D12
+D4
 Text GLabel 5050 2150 0    60   Input ~ 0
 D7
 Text GLabel 2900 3400 2    60   Input ~ 0
@@ -293,7 +293,7 @@ F 1 "GND" H 8500 3530 30  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 8400 3400 0    60   Input ~ 0
-D3 PWM
+D11 PWM
 Text Notes 8300 3000 0    60   ~ 0
 Head Movement
 Text Notes 2150 1350 0    60   ~ 0
@@ -351,7 +351,7 @@ D10 PWM
 Text GLabel 2900 2500 2    60   Input ~ 0
 D6 PWM
 Text GLabel 5050 2450 0    60   Input ~ 0
-D11 PWM
+D3 PWM
 Text GLabel 5050 2000 0    60   Input ~ 0
 D10 PWM
 Text GLabel 5050 2300 0    60   Input ~ 0
@@ -406,7 +406,7 @@ F 1 "ANTENNA" V 10550 2300 40  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9950 2350 0    60   Input ~ 0
-D5 PWM
+D13 PWM
 Text GLabel 2650 1600 2    60   Input ~ 0
 5V
 $Comp
@@ -432,7 +432,7 @@ D3 PWM
 Text GLabel 2900 1900 2    60   Input ~ 0
 D2
 Text GLabel 9950 2150 0    60   Input ~ 0
-D4
+D12
 $Comp
 L GND #PWR011
 U 1 1 4E159ADB
