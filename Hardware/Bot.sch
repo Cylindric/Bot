@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 07/07/2011 23:31:40
+EESchema Schematic File Version 2  date 08/07/2011 08:40:01
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -37,7 +37,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title "Bot"
-Date "7 jul 2011"
+Date "8 jul 2011"
 Rev "1"
 Comp ""
 Comment1 ""
@@ -249,7 +249,7 @@ D4
 Text GLabel 5050 2150 0    60   Input ~ 0
 D7
 Text GLabel 2900 3400 2    60   Input ~ 0
-D13
+D13 PWM
 Text GLabel 2900 3250 2    60   Input ~ 0
 D12
 Text GLabel 2900 2800 2    60   Input ~ 0
