@@ -55,14 +55,14 @@ void loop()
     if (avoidanceStartTime == 0)
     {
       Serial.println("Turning to avoid object");
-      wheels.setDirection(-1);
+      wheels.setDirection(Wheels::STEER_LEFT);
       wheels.setSpeed(-100);
       avoidanceStartTime = millis();
     }
     if ((millis()-avoidanceStartTime) >= COLLISION_AVOIDANCE_TIME)
     {
       Serial.println("Turn complete");
-      wheels.setDirection(0);
+      wheels.setDirection(Wheels::STEER_STRAIGHT);
       avoidanceStartTime = 0;
       wheels.setSpeed(0);
       currentAction = ACT_CRUISING;
@@ -81,34 +81,34 @@ void loop()
     case '5': //stop motors
       Serial.println("Stopping");
       wheels.setSpeed(0);
-      wheels.setDirection(0);
+      wheels.setDirection(Wheels::STEER_STRAIGHT);
       currentAction = ACT_STOPPED;
       break;
 
     case '8': // forwards
       Serial.println("forwards");
       wheels.setSpeed(1);
-      wheels.setDirection(0);
+      wheels.setDirection(Wheels::STEER_STRAIGHT);
       currentAction = ACT_CRUISING;
       break;     
 
     case '2': // backwards
       Serial.println("backwards");
       wheels.setSpeed(-1);
-      wheels.setDirection(0);
+      wheels.setDirection(Wheels::STEER_STRAIGHT);
       currentAction = ACT_CRUISING;
       break;     
 
     case '7': // left forward
       Serial.println("Left F");
       wheels.setSpeed(1);
-      wheels.setDirection(1);
+      wheels.setDirection(Wheels::STEER_LEFT);
       currentAction = ACT_CRUISING;
       break;     
 
     case '1': // left backward
       Serial.println("Left R");
-      wheels.setSpeed(-1);
+      wheels.setSpeed(Wheels::STEER_RIGHT);
       wheels.setDirection(1);
       currentAction = ACT_CRUISING;
       break;     
@@ -116,14 +116,14 @@ void loop()
     case '9': // right forward
       Serial.println("Left F");
       wheels.setSpeed(1);
-      wheels.setDirection(-1);
+      wheels.setDirection(Wheels::STEER_LEFT);
       currentAction = ACT_CRUISING;
       break;     
 
     case '3': // right backward
       Serial.println("Left R");
-      wheels.setSpeed(-1);
-      wheels.setDirection(-1);
+      wheels.setSpeed(1);
+      wheels.setDirection(Wheels::STEER_RIGHT);
       currentAction = ACT_CRUISING;
       break;     
 

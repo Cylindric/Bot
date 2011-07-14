@@ -1,5 +1,5 @@
-update=07/07/2011 17:54:38
-last_client=eeschema
+update=14/07/2011 13:22:24
+last_client=pcbnew
 [general]
 version=1
 [eeschema]
@@ -65,3 +65,32 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=Bot
+[pcbnew]
+version=1
+PadDrlX=320
+PadDimH=600
+PadDimV=600
+BoardThickness=630
+TxtPcbV=800
+TxtPcbH=600
+TxtModV=600
+TxtModH=600
+TxtModW=120
+VEgarde=100
+DrawLar=150
+EdgeLar=150
+TxtLar=120
+MSegLar=150
+LastNetListRead=Bot.net
+[pcbnew/libraries]
+LibDir=
+LibName1=sockets
+LibName2=connect
+LibName3=discret
+LibName4=pin_array
+LibName5=divers
+LibName6=libcms
+LibName7=display
+LibName8=valves
+LibName9=led
+LibName10=dip_sockets

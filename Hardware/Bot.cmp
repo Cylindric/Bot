@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2011-04-29 BZR 2986)-stable date = 07/07/2011 17:57:02
+Cmp-Mod V01 Created by CvPCB (2011-04-29 BZR 2986)-stable date = 14/07/2011 13:21:58
 
 BeginCmp
 TimeStamp = /4E15AF7A;
@@ -15,13 +15,6 @@ IdModule  = PIN_ARRAY_3X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E15A99C;
-Reference = K2;
-ValeurCmp = ANTENNA;
-IdModule  = PIN_ARRAY_3X1;
-EndCmp
-
-BeginCmp
 TimeStamp = /4E15E31F;
 Reference = K3;
 ValeurCmp = SERVO;
@@ -29,10 +22,10 @@ IdModule  = PIN_ARRAY_3X1;
 EndCmp
 
 BeginCmp
-TimeStamp = /4E15E36D;
+TimeStamp = /4E1EDB91;
 Reference = P1;
 ValeurCmp = ARDUINO;
-IdModule  = pin_array_8x2;
+IdModule  = pin_array_12x2;
 EndCmp
 
 BeginCmp

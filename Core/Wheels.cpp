@@ -1,115 +1,181 @@
 #include <WProgram.h>
 #include "Wheels.h"
 
-Wheels::Wheels(int leftWheelA, int leftWheelB, int leftWheelP, int rightWheelA, int rightWheelB, int rightWheelP)
+Wheels::Wheels(int PinLeftA, int PinLeftB, int PinLeftP, int PinRightA, int PinRightB, int PinRightP)
 {
-  _leftWheelA = leftWheelA;
-  _leftWheelB = leftWheelB;
-  _leftWheelP = leftWheelP;
-  _rightWheelA = rightWheelA;
-  _rightWheelB = rightWheelB;
-  _rightWheelP = rightWheelP;
-  
-  _minPower = 40;  // This should be the power level where the motor stops moving
-  _maxPower = 100; // The maximum PWM to send to the motor, usually 255.
+  SteeringPins[Wheels::LEFT_WHEEL][Wheels::CTRL_A] = PinLeftA;
+  SteeringPins[Wheels::LEFT_WHEEL][Wheels::CTRL_B] = PinLeftB;
+  SteeringPins[Wheels::RIGHT_WHEEL][Wheels::CTRL_A] = PinRightA;
+  SteeringPins[Wheels::RIGHT_WHEEL][Wheels::CTRL_A] = PinRightB;
+  PowerPins[Wheels::LEFT_WHEEL] = PinLeftP;
+  PowerPins[Wheels::RIGHT_WHEEL] = PinRightP;
 
-  _direction = 0; // Steering Direction.  0 = straight.  -1 = left.  1 = right.
-  _speed = 0;
+  CurrentSteering = 0; // Steering Direction.  See Wheels.h for directional enums.
+  CurrentSpeed = 0;
 
-  _startSpeed = 0;
-  _targetSpeed = 0;
-  _speedRequestedAt = 0;
-  _speedRequestedFor = 0;
+  StartSpeed = 0;
+  TargetSpeed = 0;
+  SpeedRequestedAt = 0;
+  SpeedRequestedFor = 0;
 
-  pinMode(_leftWheelA, OUTPUT);
-  pinMode(_leftWheelB, OUTPUT);
-  pinMode(_leftWheelP, OUTPUT);
-  pinMode(_rightWheelA, OUTPUT);
-  pinMode(_rightWheelB, OUTPUT);
-  pinMode(_rightWheelP, OUTPUT);
-  digitalWrite(_leftWheelA, LOW);
-  digitalWrite(_leftWheelB, LOW);
-  digitalWrite(_leftWheelP, LOW);
-  digitalWrite(_rightWheelA, LOW);
-  digitalWrite(_rightWheelB, LOW);
-  digitalWrite(_rightWheelP, LOW);
-}      
+  for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+  {
+    pinMode(PowerPins[i], OUTPUT);
+    pinMode(SteeringPins[i][Wheels::CTRL_A], OUTPUT);
+    pinMode(SteeringPins[i][Wheels::CTRL_A], OUTPUT);
+    digitalWrite(SteeringPins[i][Wheels::CTRL_A], LOW);
+    digitalWrite(SteeringPins[i][Wheels::CTRL_B], LOW);
+  }
+}
+
+
+/**
+ * Sets up all wheels to forward motion
+ */
+void Wheels::forward()
+{
+  for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+  {
+    digitalWrite(SteeringPins[i][Wheels::CTRL_A], HIGH);
+    digitalWrite(SteeringPins[i][Wheels::CTRL_B], LOW);
+  }
+}
+
+
+/**
+ * Sets up all wheels to reverse motion
+ */
+void Wheels::reverse()
+{
+  for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+  {
+    digitalWrite(SteeringPins[i][Wheels::CTRL_A], LOW);
+    digitalWrite(SteeringPins[i][Wheels::CTRL_B], HIGH);
+  }
+}
+
+
+/**
+ * Sets up all wheels to steer left.
+ * Even-numbered wheels will turn forwards, odd-numbered wheels will turn backwards
+ */
+void Wheels::left()
+{
+  for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+  {
+    if ((i % 2) == 0)
+    {
+      digitalWrite(SteeringPins[i][Wheels::CTRL_A], LOW);
+      digitalWrite(SteeringPins[i][Wheels::CTRL_B], HIGH);
+    }
+    else
+    {
+      digitalWrite(SteeringPins[i][Wheels::CTRL_A], HIGH);
+      digitalWrite(SteeringPins[i][Wheels::CTRL_B], LOW);
+    }
+  }
+}
+
+
+/**
+ * Sets up all wheels to steer right.
+ * Odd-numbered wheels will turn forwards, even-numbered wheels will turn backwards
+ */
+void Wheels::right()
+{
+  for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+  {
+    if ((i % 2) == 1)
+    {
+      digitalWrite(SteeringPins[i][Wheels::CTRL_A], LOW);
+      digitalWrite(SteeringPins[i][Wheels::CTRL_B], HIGH);
+    }
+    else
+    {
+      digitalWrite(SteeringPins[i][Wheels::CTRL_A], HIGH);
+      digitalWrite(SteeringPins[i][Wheels::CTRL_B], LOW);
+    }
+  }
+}
+
+
+void Wheels::setPower(int power)
+{
+  int realPower = 0;
+
+  if (power == 0) {
+    for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+    {
+      analogWrite(PowerPins[i], 0);
+    }
+  }
+  else
+  {
+    realPower = map(abs(power), 0, 255, Wheels::MIN_POWER, Wheels::MAX_POWER);
+    for (int i = 0; i < Wheels::WHEEL_COUNT; i++)
+    {
+      analogWrite(PowerPins[i], realPower);
+    }
+  }
+}
+
+
+void Wheels::stop()
+{
+  setPower(0);
+}
 
 
 void Wheels::update()
 {
 
-  if (_speedRequestedFor <= millis())
+  if (SpeedRequestedFor <= millis())
   {
-    _speed = _targetSpeed;
+    CurrentSpeed = TargetSpeed;
   }
   else
   {
-    float timeScale = ((float)((millis() - _speedRequestedAt)))/((float)(_speedRequestedFor - _speedRequestedAt));
-    float speedDelta = (_targetSpeed - _startSpeed);
-    _speed = _startSpeed + (speedDelta * timeScale);
+    float timeScale = ((float)((millis() - SpeedRequestedAt)))/((float)(SpeedRequestedFor - SpeedRequestedAt));
+    float speedDelta = (TargetSpeed - StartSpeed);
+    CurrentSpeed = StartSpeed + (speedDelta * timeScale);
   }
 
-  // Set direction of wheels - forwards or backwards
-  if (_speed < 0) 
+  // Set direction of wheels
+  // If speed is positive then wheel motion is as expected,
+  // if the speed is negative, then the turning is reversed.
+  if (CurrentSpeed >= 0)
   {
-    switch (_direction)
+    switch (CurrentSteering)
     {
-      case -1:
-        digitalWrite(_leftWheelA, HIGH);
-        digitalWrite(_leftWheelB, LOW);
-        digitalWrite(_rightWheelA, LOW);
-        digitalWrite(_rightWheelB, LOW);
+      case (Wheels::STEER_LEFT):
+        left();
         break;
-      case 0:
-        digitalWrite(_leftWheelA, HIGH);
-        digitalWrite(_leftWheelB, LOW);
-        digitalWrite(_rightWheelA, HIGH);
-        digitalWrite(_rightWheelB, LOW);
+      case (Wheels::STEER_STRAIGHT):
+        forward();
         break;
-      case 1:
-        digitalWrite(_leftWheelA, LOW);
-        digitalWrite(_leftWheelB, LOW);
-        digitalWrite(_rightWheelA, HIGH);
-        digitalWrite(_rightWheelB, LOW);
+      case (Wheels::STEER_RIGHT):
+        right();
         break;
     }
-  } 
-  else 
-  {
-    switch (_direction)
-    {
-      case -1:
-        digitalWrite(_leftWheelA, LOW);
-        digitalWrite(_leftWheelB, HIGH);
-        digitalWrite(_rightWheelA, LOW);
-        digitalWrite(_rightWheelB, LOW);
-        break;
-      case 0:
-        digitalWrite(_leftWheelA, LOW);
-        digitalWrite(_leftWheelB, HIGH);
-        digitalWrite(_rightWheelA, LOW);
-        digitalWrite(_rightWheelB, HIGH);
-        break;
-      case 1:
-        digitalWrite(_leftWheelA, LOW);
-        digitalWrite(_leftWheelB, LOW);
-        digitalWrite(_rightWheelA, LOW);
-        digitalWrite(_rightWheelB, HIGH);
-        break;
-    }
-  }
-    
-  // Set wheel power
-  if (_speed == 0) {
-    analogWrite(_leftWheelP, 0);
-    analogWrite(_rightWheelP, 0);
   }
   else
   {
-    analogWrite(_leftWheelP, map(abs(_speed), 0, 255, _minPower, _maxPower));
-    analogWrite(_rightWheelP, map(abs(_speed), 0, 255, _minPower, _maxPower));
+    switch (CurrentSteering)
+    {
+      case (Wheels::STEER_LEFT):
+        right();
+        break;
+      case (Wheels::STEER_STRAIGHT):
+        reverse();
+        break;
+      case (Wheels::STEER_RIGHT):
+        left();
+        break;
+    }
   }
+
+  // Set wheel power
+  setPower(CurrentSpeed);
 
 }
 
@@ -120,17 +186,19 @@ void Wheels::update()
  */
 void Wheels::setDirection(int direction)
 {
-  _direction = direction;
+  CurrentSteering = direction;
 }
 
 
 /*
  * Gets the speed of the wheels.
  * Value is between 0 (stopped) and 255 (full speed).
+ * Note: This returns the actual current speed, and not the target
+ * speed that may not have been reached yet.
  */
 int Wheels::getSpeed()
 {
-  return _speed;
+  return CurrentSpeed;
 }
 
 /*
@@ -149,10 +217,10 @@ void Wheels::setSpeed(int speed)
  */
 void Wheels::setSpeed(int speed, unsigned long easeIn)
 {
-  _startSpeed = _speed;
-  _targetSpeed = constrain(speed, -255, 255);
-  _speedRequestedAt = millis();
-  _speedRequestedFor = (_speedRequestedAt + easeIn);
+  StartSpeed = CurrentSpeed;
+  TargetSpeed = constrain(speed, -255, 255);
+  SpeedRequestedAt = millis();
+  SpeedRequestedFor = (SpeedRequestedAt + easeIn);
 }
 
 
@@ -162,10 +230,12 @@ void Wheels::determineMin()
   {
     Serial.print("Wheels: Trying power ");
     Serial.println(power);
-    analogWrite(_leftWheelP, power);
-    analogWrite(_rightWheelP, power);
+    analogWrite(_leftWheelPinP, power);
+    analogWrite(_rightWheelPinP, power);
     delay(1000);
   }
-  analogWrite(_leftWheelP, 0);
-  analogWrite(_rightWheelP, 0);
+  analogWrite(_leftWheelPinP, 0);
+  analogWrite(_rightWheelPinP, 0);
 }
+
+
