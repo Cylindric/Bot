@@ -10,8 +10,8 @@ const int COLLISION_WARNING_DISTANCE = 16;
 const int COLLISION_CLEAR_DISTANCE = 17;
 const int COLLISION_AVOIDANCE_TIME = 1000;
 
-Wheels wheels(7,8,10,  4,5,3);
-Eyes eyes(2);
+Wheels wheels(7,8,10,  5,4,3);
+Eyes eyes(2, 11);
 
 int incomingByte = 0;
 int currentAction = ACT_STOPPED;
@@ -76,48 +76,57 @@ void loop()
   {
     incomingByte = Serial.read();
 
-    // stop
     switch (incomingByte)
     {
-    case '0': //stop motors
+    case '5': //stop motors
       Serial.println("Stopping");
       wheels.setSpeed(0);
+      wheels.setDirection(0);
       currentAction = ACT_STOPPED;
       break;
 
-    case '1': // full speed
-      Serial.println("Starting");
-      wheels.setSpeed(255);
+    case '8': // forwards
+      Serial.println("forwards");
+      wheels.setSpeed(1);
+      wheels.setDirection(0);
       currentAction = ACT_CRUISING;
       break;     
 
-    case 'S': // increase speed
-      Serial.print("Increasing speed from ");
-      Serial.print(wheels.getSpeed());
-      Serial.println("...");
-      wheels.setSpeed(wheels.getSpeed()+10);
+    case '2': // backwards
+      Serial.println("backwards");
+      wheels.setSpeed(-1);
+      wheels.setDirection(0);
       currentAction = ACT_CRUISING;
-      break;
+      break;     
 
-    case 's': // decrease speed
-      Serial.print("Decreasing speed from ");
-      Serial.print(wheels.getSpeed());
-      Serial.println("...");
-      wheels.setSpeed(wheels.getSpeed()-10);
-      currentAction = ACT_STOPPED;
-      break;
-
-    case 'E': // ease in to speed
-      Serial.println("Easing up to max speed");
-      wheels.setSpeed(255, 2000);
+    case '7': // left forward
+      Serial.println("Left F");
+      wheels.setSpeed(1);
+      wheels.setDirection(1);
       currentAction = ACT_CRUISING;
-      break;
+      break;     
 
-    case 'e': // ease out to speed
-      Serial.println("Easing down to min speed");
-      wheels.setSpeed(0, 2000);
-      currentAction = ACT_STOPPED;
-      break;
+    case '1': // left backward
+      Serial.println("Left R");
+      wheels.setSpeed(-1);
+      wheels.setDirection(1);
+      currentAction = ACT_CRUISING;
+      break;     
+
+    case '9': // right forward
+      Serial.println("Left F");
+      wheels.setSpeed(1);
+      wheels.setDirection(-1);
+      currentAction = ACT_CRUISING;
+      break;     
+
+    case '3': // right backward
+      Serial.println("Left R");
+      wheels.setSpeed(-1);
+      wheels.setDirection(-1);
+      currentAction = ACT_CRUISING;
+      break;     
+
     }
 
   }

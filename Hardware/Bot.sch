@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 08/07/2011 08:40:01
+EESchema Schematic File Version 2  date 13/07/2011 23:35:35
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,14 +30,13 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:Bot
-LIBS:Bot-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title "Bot"
-Date "8 jul 2011"
+Date "13 jul 2011"
 Rev "1"
 Comp ""
 Comment1 ""
@@ -79,7 +78,11 @@ Wire Wire Line
 Wire Wire Line
 	2650 2000 2650 1750
 Wire Wire Line
-	2650 1750 3200 1750
+	2650 1750 2950 1750
+Wire Wire Line
+	2950 1750 3100 1750
+Wire Wire Line
+	3100 1750 3200 1750
 Wire Wire Line
 	2150 2500 2900 2500
 Wire Wire Line
@@ -91,18 +94,24 @@ Wire Wire Line
 Wire Wire Line
 	5050 2150 5250 2150
 Wire Wire Line
-	6850 2300 6750 2300
+	7100 2300 6750 2300
 Wire Wire Line
 	6750 2300 6750 2200
 Wire Wire Line
 	6750 2200 6650 2200
 Wire Wire Line
-	6850 2500 6800 2500
+	7100 2500 6800 2500
 Wire Wire Line
 	6800 2500 6800 2600
 Connection ~ 6000 3350
 Wire Wire Line
-	6100 3350 5800 3350
+	6100 3350 6000 3350
+Wire Wire Line
+	6000 3350 5950 3350
+Wire Wire Line
+	5950 3350 5900 3350
+Wire Wire Line
+	5900 3350 5800 3350
 Wire Wire Line
 	6100 3350 6100 3250
 Connection ~ 5900 3350
@@ -174,13 +183,13 @@ Connection ~ 5950 3350
 Wire Wire Line
 	6750 2500 6750 2400
 Wire Wire Line
-	6750 2400 6850 2400
+	6750 2400 7100 2400
 Wire Wire Line
 	6650 2100 6800 2100
 Wire Wire Line
 	6800 2100 6800 2200
 Wire Wire Line
-	6800 2200 6850 2200
+	6800 2200 7100 2200
 Wire Wire Line
 	5250 2250 5150 2250
 Wire Wire Line
@@ -208,7 +217,11 @@ Wire Wire Line
 Connection ~ 2450 1900
 Connection ~ 2250 1900
 Wire Wire Line
-	2600 1900 2150 1900
+	2600 1900 2450 1900
+Wire Wire Line
+	2450 1900 2250 1900
+Wire Wire Line
+	2250 1900 2150 1900
 Connection ~ 2950 1750
 Connection ~ 6250 1500
 Connection ~ 3100 1750
@@ -225,11 +238,15 @@ Wire Wire Line
 Wire Wire Line
 	2650 3250 2900 3250
 Wire Wire Line
-	2150 3200 2550 3200
+	2150 3200 2300 3200
+Wire Wire Line
+	2300 3200 2550 3200
 Wire Wire Line
 	2550 3200 2550 3550
 Wire Wire Line
-	2550 3550 2900 3550
+	2550 3550 2700 3550
+Wire Wire Line
+	2700 3550 2900 3550
 Wire Wire Line
 	5250 2050 5150 2050
 Wire Wire Line
@@ -379,10 +396,10 @@ $EndComp
 $Comp
 L CONN_4 P2
 U 1 1 4E15B023
-P 7200 2350
-F 0 "P2" V 7150 2350 50  0000 C CNN
-F 1 "MOTORS" V 7250 2350 50  0000 C CNN
-	1    7200 2350
+P 7450 2350
+F 0 "P2" V 7400 2350 50  0000 C CNN
+F 1 "MOTORS" V 7500 2350 50  0000 C CNN
+	1    7450 2350
 	1    0    0    -1  
 $EndComp
 $Comp

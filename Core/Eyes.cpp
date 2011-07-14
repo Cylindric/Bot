@@ -1,12 +1,21 @@
+#include <Servo.h>
 #include <WProgram.h>
 #include "Eyes.h"
 
-Eyes::Eyes(int pingPin)
+Eyes::Eyes(int pingPin, int neckPin)
 {
   _pingPin = pingPin;
+  _neckPin = neckPin;
   _distance = 0;
-  _lastPing = millis();  
-}      
+  _lastPing = millis();
+  pinMode(_neckPin, OUTPUT);
+}
+
+
+void Eyes::wake()
+{
+  
+}
 
 
 void Eyes::update()

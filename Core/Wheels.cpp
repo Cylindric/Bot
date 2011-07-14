@@ -11,7 +11,7 @@ Wheels::Wheels(int leftWheelA, int leftWheelB, int leftWheelP, int rightWheelA, 
   _rightWheelP = rightWheelP;
   
   _minPower = 40;  // This should be the power level where the motor stops moving
-  _maxPower = 255; // The maximum PWM to send to the motor, usually 255.
+  _maxPower = 100; // The maximum PWM to send to the motor, usually 255.
 
   _direction = 0; // Steering Direction.  0 = straight.  -1 = left.  1 = right.
   _speed = 0;
@@ -51,7 +51,8 @@ void Wheels::update()
   }
 
   // Set direction of wheels - forwards or backwards
-  if (_speed < 0) {
+  if (_speed < 0) 
+  {
     switch (_direction)
     {
       case -1:
@@ -73,12 +74,30 @@ void Wheels::update()
         digitalWrite(_rightWheelB, LOW);
         break;
     }
-
-  } else {
-    digitalWrite(_leftWheelA, LOW);
-    digitalWrite(_leftWheelB, HIGH);
-    digitalWrite(_rightWheelA, LOW);
-    digitalWrite(_rightWheelB, HIGH);
+  } 
+  else 
+  {
+    switch (_direction)
+    {
+      case -1:
+        digitalWrite(_leftWheelA, LOW);
+        digitalWrite(_leftWheelB, HIGH);
+        digitalWrite(_rightWheelA, LOW);
+        digitalWrite(_rightWheelB, LOW);
+        break;
+      case 0:
+        digitalWrite(_leftWheelA, LOW);
+        digitalWrite(_leftWheelB, HIGH);
+        digitalWrite(_rightWheelA, LOW);
+        digitalWrite(_rightWheelB, HIGH);
+        break;
+      case 1:
+        digitalWrite(_leftWheelA, LOW);
+        digitalWrite(_leftWheelB, LOW);
+        digitalWrite(_rightWheelA, LOW);
+        digitalWrite(_rightWheelB, HIGH);
+        break;
+    }
   }
     
   // Set wheel power
