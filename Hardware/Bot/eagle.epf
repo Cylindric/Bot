@@ -329,10 +329,11 @@ UsedLibrary="C:/Program Files (x86)/EAGLE-5.11.0/lbr/xilinx-xc9.lbr"
 UsedLibrary="C:/Program Files (x86)/EAGLE-5.11.0/lbr/xilinx-xcv.lbr"
 UsedLibrary="C:/Program Files (x86)/EAGLE-5.11.0/lbr/zetex.lbr"
 UsedLibrary="C:/Program Files (x86)/EAGLE-5.11.0/lbr/zilog.lbr"
+UsedLibrary="BotParts.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="125 125 724 524"
+Loc="1272 -8 2551 993"
 State=2
 Number=0
 

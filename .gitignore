@@ -3,6 +3,8 @@ $savepcb.brd
 *.bak
 *.bck
 *-cache.*
+*.s#?
+*.l#?
 
 Wheels.h
 Wheels.cpp
