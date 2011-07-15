@@ -20,3 +20,7 @@ Eyes.cpp
 !Core/Eyes.cpp
 
 
+Code/*.csproj.user
+Code/*.suo
+Code/bin
+Code/obj
