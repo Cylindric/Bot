@@ -5,6 +5,7 @@ $savepcb.brd
 *-cache.*
 *.s#?
 *.l#?
+*.b#?
 
 Wheels.h
 Wheels.cpp
