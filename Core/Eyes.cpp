@@ -5,16 +5,17 @@
 Eyes::Eyes(int pingPin, int neckPin)
 {
   _pingPin = pingPin;
-  _neckPin = neckPin;
   _distance = 0;
   _lastPing = millis();
-  pinMode(_neckPin, OUTPUT);
+  _neckServo.attach(neckPin, 544, 2400); //default is 544,2400
 }
 
 
 void Eyes::wake()
 {
-  
+  Serial.println("Neck at 0");
+  _neckServo.write(90);
+  for(;;);
 }
 
 

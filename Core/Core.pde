@@ -26,8 +26,9 @@ void setup()
   Serial.println("Ready!");
   Serial.flush();
   
-  currentAction = ACT_CRUISING;
-  wheels.setSpeed(30);
+  //currentAction = ACT_CRUISING;
+  //wheels.setSpeed(30);
+  eyes.wake();
 }
 
 void loop()
