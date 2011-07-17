@@ -9,12 +9,12 @@ namespace Bot.Libs
         private Ping Eye;
         private int LastDistance = 0;
         private DateTime LastUpdate = DateTime.MinValue;
-        private const TimeSpan UPDATE_FREQUENCY = new TimeSpan(0, 0, 1);
+        private TimeSpan UPDATE_FREQUENCY = new TimeSpan(0, 0, 1);
 
 
         public EyesController(Cpu.Pin controlPin)
         {
-            Ping ping = new Ping(controlPin);
+            Ping Eye = new Ping(controlPin);
         }
 
 

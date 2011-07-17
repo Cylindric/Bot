@@ -57,6 +57,11 @@ namespace Bot
         }
 
 
+        public void sleep()
+        {
+        }
+
+
         public void forward(int speed)
         {
             LeftWheel.setSpeed(speed);
