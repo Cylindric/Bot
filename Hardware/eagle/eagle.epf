@@ -11,10 +11,10 @@ UsedLibrary="BotParts.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="405 291 1225 792"
+Loc="203 58 1023 559"
 State=2
 Number=0
 
 [Desktop]
-Screen="2960 1050"
+Screen="1024 600"
 Window="Win_1"
