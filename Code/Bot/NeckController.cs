@@ -1,9 +1,5 @@
-using System;
-using Microsoft.SPOT;
-using Microsoft.SPOT.Hardware;
-using SecretLabs.NETMF.Hardware;
-using SecretLabs.NETMF.Hardware.Netduino;
 using System.Threading;
+using Microsoft.SPOT.Hardware;
 
 namespace Bot
 {

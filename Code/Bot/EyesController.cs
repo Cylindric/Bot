@@ -2,7 +2,7 @@ using System;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 
-namespace Bot.Libs
+namespace Bot
 {
     class EyesController: iController
     {
