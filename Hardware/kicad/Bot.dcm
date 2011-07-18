@@ -1,8 +1,0 @@
-EESchema-DOCLIB  Version 2.0  Date: 07/07/2011 18:37:25
-#
-$CMP SN754410
-D Quadruple Half-H Driver
-K H Bridge h-bridge
-$ENDCMP
-#
-#End Doc Library
