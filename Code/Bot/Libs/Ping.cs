@@ -18,6 +18,10 @@ namespace Bot.Libs
             PingPort = new TristatePort(port, false, false, Port.ResistorMode.Disabled);
         }
 
+        /// <summary>
+        /// Sends out a Ping))) and returns the current distance in cm.
+        /// </summary>
+        /// <returns>Distance in cm</returns>
         public int Distance()
         {
             bool portState;

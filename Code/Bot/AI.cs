@@ -8,7 +8,8 @@ namespace Bot
         private enum State
         {
             IDLE = 0,
-            CRUISING = 1
+            CRUISING = 1,
+            APPROACH = 2
         }
 
         private WheelsController MyWheels;
@@ -109,7 +110,17 @@ namespace Bot
             this.MyNeck.sleep();
         }
 
-        private think()
+        /// <summary>
+        /// Process the incoming data and update the state.
+        /// 
+        /// States are:
+        /// * IDLE: Bot is idle.  Bot will stay idle.
+        /// * CRUISING: Bot is moving forwards.
+        ///             May be accelerating due to ease-in.
+        /// * APPROACH: Bot is aproaching an obstacle.
+        ///             Response depends on rate-of-approach.
+        /// </summary>
+        private void think()
         {
         }
 
