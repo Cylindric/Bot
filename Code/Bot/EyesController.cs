@@ -2,20 +2,22 @@ using System;
 using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using Bot.Libs;
+using System.Threading;
 
 namespace Bot
 {
     class EyesController: iController
     {
         private Ping Eye;
-        private int LastDistance = 0;
+        private double LastDistance = 0;
         private DateTime LastUpdate = DateTime.MinValue;
         private TimeSpan UPDATE_FREQUENCY = new TimeSpan(0, 0, 1);
-        private float RateOfChange = 0.0F; // the rate-of-change, in cm/s
+        private double RateOfChange = 0.0F; // the rate-of-change, in cm/s
 
         public EyesController(Cpu.Pin controlPin)
         {
-            Ping Eye = new Ping(controlPin);
+            this.Eye = new Ping(controlPin);
+            this.Eye.Unit = DistanceUnits.cm;
         }
 
         #region Public Properties
@@ -23,7 +25,7 @@ namespace Bot
         /// <summary>
         /// The rate-of-change of distance, in cm/s
         /// </summary>
-        public readonly float Rate
+        public double Rate
         {
             get
             {
@@ -35,6 +37,8 @@ namespace Bot
 
         public void wake()
         {
+            Thread.Sleep(100);
+            this.Eye.GetDistance();
         }
 
 
@@ -42,29 +46,35 @@ namespace Bot
         {
             if ((DateTime.Now - LastUpdate) > UPDATE_FREQUENCY)
             {
-                Ping();
+                this.ping();
             }
         }
 
 
-        public int ping()
+        /// <summary>
+        /// Send a ping and return the distance to the nearest object
+        /// </summary>
+        /// <returns>Distance in cm</returns>
+        public double ping()
         {
-            int newDistance = Eye.Distance();
-            int deltaDist = (LastDistance - newDistance);
-            int deltaTime = (LastUpdate - DateTime.Now).Seconds;
+            double newDistance = Eye.GetDistance();
+            double deltaDist = (LastDistance - newDistance);
+            double deltaTime = (LastUpdate - DateTime.Now).Milliseconds;
 
-            this.RateOfChange = ((float)deltaDist / (float)deltaTime);
+            this.RateOfChange = (deltaDist / deltaTime);
             this.LastDistance = newDistance;
+            Debug.Print("EYES: Distance: " + newDistance + ", Rate: " + this.RateOfChange);
             this.LastUpdate = DateTime.Now;
             return newDistance;
         }
+
 
         public void sleep()
         {
         }
 
 
-        public int distance()
+        public double distance()
         {
             return LastDistance;
         }

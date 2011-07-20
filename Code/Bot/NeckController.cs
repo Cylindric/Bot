@@ -9,7 +9,7 @@ namespace Bot
     {
         // calibration constants
         private const int AHEAD = 95;
-        private const int LEFT = 50;
+        private const int LEFT = 60;
         private const int RIGHT = 140;
 
         private int CurrentAngle = 0;

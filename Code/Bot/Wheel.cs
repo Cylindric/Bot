@@ -54,7 +54,11 @@ namespace Bot
             {
                 long ElapsedMillis = (DateTime.Now - SpeedRequestedAt).Milliseconds;
                 long TotalMillis = (SpeedRequestedFor - SpeedRequestedAt).Milliseconds;
-                float progress = ((float)ElapsedMillis / (float)TotalMillis);
+                float progress = 1;
+                if (TotalMillis == 0)
+                {
+                    progress = ((float)ElapsedMillis / (float)TotalMillis);
+                }
                 long delta = RequestedTargetSpeed - RequestedStartSpeed;
                 CurrentSpeed = RequestedStartSpeed + (int)(delta * progress);
             }

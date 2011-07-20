@@ -24,7 +24,7 @@ namespace Bot
         private bool KeepAlive = false;
 
         private State CurrentState = State.IDLE;
-
+        private DateTime LastUpdate = DateTime.Now;
         
         public AI()
         {
@@ -127,32 +127,45 @@ namespace Bot
         /// </summary>
         private void think()
         {
+            if (this.CurrentState == State.CRUISING)
+            {
+                double distance = this.MyEyes.distance();
+                if (distance < 20)
+                {
+                    this.MyWheels.stop();
+                    this.findClosestBearing();
+                }
+                else
+                {
+                    this.MyWheels.forward(100);
+                }
+            }
         }
 
 
         public int findClosestBearing()
         {
-            // start sweep on the left, allow time for neck to reach start position
-            MyNeck.setAngle(-90);
-            Thread.Sleep(200);
-
             int closestAngle = 0;
-            int distance = MAX_DISTANCE;
-            int closestDistance = 0;
+            double distance = MAX_DISTANCE;
+            double closestDistance = MAX_DISTANCE;
 
             for (int angle = -90; angle <= 90; angle += SCAN_ANGLE)
             {
+                MyNeck.setAngle(angle);
+                Thread.Sleep(50);
                 distance = MyEyes.ping();
                 if (distance < closestDistance)
                 {
+                    Debug.Print("Closer object found at " + angle + " bearing and " + distance + " range");
                     closestDistance = distance;
                     closestAngle = angle;
                 }
             }
 
             // return to previous position
-            MyNeck.setAngle(0);
+            MyNeck.setAngle(closestAngle);
 
+            Debug.Print("Closest object found at " + closestAngle + " bearing and " + closestDistance + " range");
             return closestAngle;
         }
 

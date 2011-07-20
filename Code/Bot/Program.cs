@@ -21,13 +21,16 @@ namespace Bot
 
             ai.wake();
 
+            // test ping
+            //while (true)
+            //{
+            //    ai.Eyes.ping();
+            //    Thread.Sleep(1000);
+            //}
+
             while (ai.Alive)
             {
-                led.Write(true);               
                 ai.update();
-               
-                led.Write(false);
-                Thread.Sleep(1000);
             }
 
             ai.sleep();
