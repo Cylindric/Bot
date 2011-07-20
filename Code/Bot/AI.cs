@@ -1,5 +1,6 @@
 using System;
 using Microsoft.SPOT;
+using System.Threading;
 
 namespace Bot
 {
@@ -11,6 +12,10 @@ namespace Bot
             CRUISING = 1,
             APPROACH = 2
         }
+
+        private const int MAX_DISTANCE = 1000;
+        private const int MIN_DISTANCE = 0;
+        private const int SCAN_ANGLE = 5;
 
         private WheelsController MyWheels;
         private EyesController MyEyes;
@@ -114,7 +119,7 @@ namespace Bot
         /// Process the incoming data and update the state.
         /// 
         /// States are:
-        /// * IDLE: Bot is idle.  Bot will stay idle.
+        /// * IDLE:     Bot is idle.
         /// * CRUISING: Bot is moving forwards.
         ///             May be accelerating due to ease-in.
         /// * APPROACH: Bot is aproaching an obstacle.
@@ -122,6 +127,33 @@ namespace Bot
         /// </summary>
         private void think()
         {
+        }
+
+
+        public int findClosestBearing()
+        {
+            // start sweep on the left, allow time for neck to reach start position
+            MyNeck.setAngle(-90);
+            Thread.Sleep(200);
+
+            int closestAngle = 0;
+            int distance = MAX_DISTANCE;
+            int closestDistance = 0;
+
+            for (int angle = -90; angle <= 90; angle += SCAN_ANGLE)
+            {
+                distance = MyEyes.ping();
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestAngle = angle;
+                }
+            }
+
+            // return to previous position
+            MyNeck.setAngle(0);
+
+            return closestAngle;
         }
 
     }

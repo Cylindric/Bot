@@ -42,16 +42,22 @@ namespace Bot
         {
             if ((DateTime.Now - LastUpdate) > UPDATE_FREQUENCY)
             {
-                int newDistance = Eye.Distance();
-                int deltaDist = (LastDistance - newDistance);
-                int deltaTime = (LastUpdate - DateTime.Now).Seconds;
-
-                this.RateOfChange = ((float)deltaDist / (float)deltaTime);
-                this.LastDistance = newDistance;
-                this.LastUpdate = DateTime.Now;
+                Ping();
             }
         }
 
+
+        public int ping()
+        {
+            int newDistance = Eye.Distance();
+            int deltaDist = (LastDistance - newDistance);
+            int deltaTime = (LastUpdate - DateTime.Now).Seconds;
+
+            this.RateOfChange = ((float)deltaDist / (float)deltaTime);
+            this.LastDistance = newDistance;
+            this.LastUpdate = DateTime.Now;
+            return newDistance;
+        }
 
         public void sleep()
         {
