@@ -7,22 +7,6 @@ $savepcb.brd
 *.l#?
 *.b#?
 
-Wheels.h
-Wheels.cpp
-!Core/Wheels.h
-!Core/Wheels.cpp
-
-Face.h
-Face.cpp
-!Core/Face.h
-!Core/Face.cpp
-
-Eyes.h
-Eyes.cpp
-!Core/Eyes.h
-!Core/Eyes.cpp
-
-
 *.csproj.user
 *.suo
 Code/*/bin

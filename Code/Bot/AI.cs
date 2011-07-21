@@ -21,6 +21,7 @@ namespace Bot
         private WheelsController MyWheels;
         private EyesController MyEyes;
         private NeckController MyNeck;
+        private DisplayController MyDisplay;
 
         private AIState CurrentState = AIState.idle;
         private DateTime LastUpdate = DateTime.Now;
@@ -30,7 +31,7 @@ namespace Bot
         }
 
 
-        #region Private Properties
+        #region Public Properties
 
         public AIState State
         {
@@ -76,6 +77,18 @@ namespace Bot
             }
         }
 
+        public DisplayController Display
+        {
+            get
+            {
+                return MyDisplay;
+            }
+            set
+            {
+                MyDisplay = value;
+            }
+        }
+
         #endregion
 
 
@@ -84,6 +97,7 @@ namespace Bot
             MyWheels.Wake();
             MyEyes.Wake();
             MyNeck.Wake();
+            MyDisplay.Wake();
             CurrentState = AIState.cruising;
         }
 
@@ -98,6 +112,7 @@ namespace Bot
 
             // update outputs
             MyWheels.Update();
+            MyDisplay.Update();
         }
 
 
@@ -105,6 +120,7 @@ namespace Bot
         {
             MyWheels.Sleep();
         }
+
 
         /// <summary>
         /// Process the incoming data and update the state.

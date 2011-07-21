@@ -25,6 +25,7 @@ namespace Bot
             ai.Wheels = new WheelsController(Pins.GPIO_PIN_D2, Pins.GPIO_PIN_D3, Pins.GPIO_PIN_D5, Pins.GPIO_PIN_D4, Pins.GPIO_PIN_D7, Pins.GPIO_PIN_D6);
             ai.Neck = new NeckController(Pins.GPIO_PIN_D9);
             ai.Eyes = new EyesController(Pins.GPIO_PIN_D8);
+            ai.Display = new DisplayController(Pins.GPIO_PIN_D13, Pins.GPIO_PIN_D12, Pins.GPIO_PIN_D11);
 
             ai.wake();
 

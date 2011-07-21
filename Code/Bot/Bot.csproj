@@ -31,9 +31,11 @@
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Compile Include="AI.cs" />
+    <Compile Include="DisplayController.cs" />
     <Compile Include="EyesController.cs" />
     <Compile Include="Libs\Ping.cs" />
     <Compile Include="Libs\Servo.cs" />
+    <Compile Include="Libs\ShiftRegister.cs" />
     <Compile Include="Libs\Tools.cs" />
     <Compile Include="WheelsController.cs" />
     <Compile Include="NeckController.cs" />
