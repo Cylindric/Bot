@@ -15,6 +15,7 @@ namespace Bot
             bool ledState = true;
             OutputPort led = new OutputPort(Pins.ONBOARD_LED, ledState);
 
+            // some counters for monitoring the "fps"
             ulong frameCount = 0;
             DateTime startTime = DateTime.Now;
             TimeSpan runningTime;
@@ -36,7 +37,8 @@ namespace Bot
                 if ((frameCount % 10) == 0)
                 {
                     runningTime = DateTime.Now - startTime;
-                    fps = (float)frameCount / runningTime.Seconds;
+                    fps = (float)frameCount / runningTime.Milliseconds;
+                    fps = fps / 1000;
                     Debug.Print("FPS: " + fps.ToString());
                     ledState = !ledState;
                 }
