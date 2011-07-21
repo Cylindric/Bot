@@ -72,7 +72,7 @@ namespace Bot
 
         public void Update()
         {
-            LEDShifter.WriteInt(LEDStates);
+            LEDShifter.Write((byte)LEDStates);
         }
 
     }

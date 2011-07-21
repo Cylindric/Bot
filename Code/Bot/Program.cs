@@ -35,12 +35,12 @@ namespace Bot
                 frameCount++;
 
                 // Every few frames spit out an FPS counter
-                if ((frameCount % 10) == 0)
+                if ((frameCount % 100) == 0)
                 {
                     runningTime = DateTime.Now - startTime;
                     fps = (float)frameCount / runningTime.Milliseconds;
-                    fps = fps / 1000;
-                    Debug.Print("FPS: " + fps.ToString());
+                    fps = fps * 1000;
+                    Debug.Print("FPS: " + frameCount + ": " + fps.ToString());
                     ledState = !ledState;
                 }
 

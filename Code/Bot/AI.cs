@@ -11,7 +11,8 @@ namespace Bot
             dead = 0,
             idle = 1,
             cruising = 2,
-            approach = 3
+            approach = 3,
+            scanning = 4
         }
 
         private const int MAX_DISTANCE = 1000;
@@ -129,6 +130,7 @@ namespace Bot
         /// * IDLE:     Bot is idle.
         /// * CRUISING: Bot is moving forwards.
         ///             May be accelerating due to ease-in.
+        /// * SCANNING: Looking for nearest obstacle.
         /// * APPROACH: Bot is aproaching an obstacle.
         ///             Response depends on rate-of-approach.
         /// </summary>
@@ -140,12 +142,17 @@ namespace Bot
                 if (distance < 20)
                 {
                     MyWheels.Stop();
-                    FindClosestBearing();
+                    CurrentState = AIState.scanning;
                 }
                 else
                 {
                     MyWheels.SetSpeed(100);
                 }
+            }
+            else if (CurrentState == AIState.scanning)
+            {
+                FindClosestBearing();
+                CurrentState = AIState.cruising;
             }
         }
 
