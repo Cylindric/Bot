@@ -5,7 +5,7 @@ using System;
 
 namespace Bot
 {
-    class NeckController : iController
+    class NeckController
     {
         // calibration constants
         private const int AHEAD = 95;
@@ -24,11 +24,11 @@ namespace Bot
         }
 
 
-        public void wake()
+        /// <summary>
+        /// Wake up the neck, and perform a quick sweep to indicate functional status.
+        /// </summary>
+        public void Wake()
         {
-            NeckServo.Degree = AHEAD;
-            Thread.Sleep(200);
-
             NeckServo.Degree = LEFT;
             Thread.Sleep(400);
             NeckServo.Degree = RIGHT;
@@ -37,17 +37,12 @@ namespace Bot
         }
 
         
-        public void update()
-        {
-        }
-
-        
         /// <summary>
         /// Set the neck to the required angle.
         /// Note that angle is negative for left, and positive for right.
         /// </summary>
         /// <param name="angle">The desired angle, between -90 and 90.</param>
-        public void setAngle(int angle)
+        public void SetAngle(int angle)
         {
             RequestedAngle = DegreesToServo(angle);
             CurrentAngle = RequestedAngle;
@@ -55,7 +50,10 @@ namespace Bot
         }
 
 
-        public void sleep()
+        /// <summary>
+        /// Put the neck to sleep; parks the neck at zero angle.
+        /// </summary>
+        public void Sleep()
         {
             NeckServo.Degree = AHEAD;
         }

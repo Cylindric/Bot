@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Bot
 {
-    class WheelsController : iController
+    class WheelsController
     {
         private Wheel LeftWheel;
         private Wheel RightWheel;
@@ -21,51 +21,67 @@ namespace Bot
         }
 
 
-        public void wake()
+        /// <summary>
+        /// Wake up all wheels
+        /// </summary>
+        public void Wake()
         {
-            LeftWheel.setSpeed(10);
-            RightWheel.setSpeed(10);
-            LeftWheel.update();
-            RightWheel.update();
+            LeftWheel.SetSpeed(10);
+            RightWheel.SetSpeed(10);
+            LeftWheel.Update();
+            RightWheel.Update();
             Thread.Sleep(200);
 
-            LeftWheel.setSpeed(-10);
-            RightWheel.setSpeed(-10);
-            LeftWheel.update();
-            RightWheel.update();
+            LeftWheel.SetSpeed(-10);
+            RightWheel.SetSpeed(-10);
+            LeftWheel.Update();
+            RightWheel.Update();
             Thread.Sleep(200);
 
-            LeftWheel.setSpeed(0);
-            RightWheel.setSpeed(0);
-            LeftWheel.update();
-            RightWheel.update();
+            LeftWheel.SetSpeed(0);
+            RightWheel.SetSpeed(0);
+            LeftWheel.Update();
+            RightWheel.Update();
         }
 
 
-        public void update()
+        public void Update()
         {
-            LeftWheel.update();
-            RightWheel.update();
+            LeftWheel.Update();
+            RightWheel.Update();
             LastUpdate = DateTime.Now;
         }
 
 
-        public void stop()
+        /// <summary>
+        /// Stop all wheels.
+        /// </summary>
+        /// <remarks>Takes effect at next Update().</remarks>
+        public void Stop()
         {
-            LeftWheel.setSpeed(0);
-            RightWheel.setSpeed(0);
+            SetSpeed(0);
         }
 
 
-        public void sleep()
+        /// <summary>
+        /// Put all wheels to sleep.  Stops all wheels.
+        /// </summary>
+        public void Sleep()
         {
+            LeftWheel.Sleep();
+            RightWheel.Sleep();
         }
 
 
-        public void forward(int speed)
+        /// <summary>
+        /// Set speed for all wheels.
+        /// </summary>
+        /// <param name="speed">Speed to apply.</param>
+        /// <param name="time">Time to reach speed (millis)</param>
+        public void SetSpeed(int speed, ulong time = 0)
         {
-            LeftWheel.setSpeed(speed);
-            RightWheel.setSpeed(speed);
+            LeftWheel.SetSpeed(speed, time);
+            RightWheel.SetSpeed(speed, time);
         }
 
     }

@@ -31,7 +31,6 @@
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Compile Include="AI.cs" />
-    <Compile Include="iController.cs" />
     <Compile Include="EyesController.cs" />
     <Compile Include="Libs\Ping.cs" />
     <Compile Include="Libs\Servo.cs" />

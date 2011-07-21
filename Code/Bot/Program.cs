@@ -12,7 +12,13 @@ namespace Bot
     {
         public static void Main()
         {
-            OutputPort led = new OutputPort(Pins.ONBOARD_LED,false);
+            bool ledState = true;
+            OutputPort led = new OutputPort(Pins.ONBOARD_LED, ledState);
+
+            ulong frameCount = 0;
+            DateTime startTime = DateTime.Now;
+            TimeSpan runningTime;
+            float fps = 0;
 
             AI ai = new AI();
             ai.Wheels = new WheelsController(Pins.GPIO_PIN_D2, Pins.GPIO_PIN_D3, Pins.GPIO_PIN_D5, Pins.GPIO_PIN_D4, Pins.GPIO_PIN_D7, Pins.GPIO_PIN_D6);
@@ -21,19 +27,24 @@ namespace Bot
 
             ai.wake();
 
-            // test ping
-            //while (true)
-            //{
-            //    ai.Eyes.ping();
-            //    Thread.Sleep(1000);
-            //}
-
-            while (ai.Alive)
+            while (ai.State != AI.AIState.dead)
             {
-                ai.update();
+                ai.Update();
+                frameCount++;
+
+                // Every few frames spit out an FPS counter
+                if ((frameCount % 10) == 0)
+                {
+                    runningTime = DateTime.Now - startTime;
+                    fps = (float)frameCount / runningTime.Seconds;
+                    Debug.Print("FPS: " + fps.ToString());
+                    ledState = !ledState;
+                }
+
+                led.Write(ledState);
             }
 
-            ai.sleep();
+            ai.Sleep();
 
         }
 

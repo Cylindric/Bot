@@ -28,12 +28,20 @@ namespace Bot
             ControlPortA = new OutputPort(controlPortA, false);
             ControlPortB = new OutputPort(controlPortB, false);
             ControlPortP = new PWM(powerPort);
-            setSpeed(0, 0);
-            update();
+            SetSpeed(0, 0);
+            Update();
         }
 
 
-        public void setSpeed(int speed, ulong time = 0)
+        /// <summary>
+        /// Set the desired speed of the wheel, and the time to take to get there (ease-in).
+        /// If time is zero, the specified speed will be set on the next update.
+        /// If time is non-zero, the speed will be reached in the specified time with a simple linear accelleration.
+        /// </summary>
+        /// <remarks>No changes are actually applied to the wheel until <see cref="update"/> is called.</remarks>
+        /// <param name="speed">Target speed</param>
+        /// <param name="time">Time to reach speed (millis)</param>
+        public void SetSpeed(int speed, ulong time = 0)
         {
             SpeedRequestedAt = DateTime.Now;
             SpeedRequestedFor = SpeedRequestedAt.AddMilliseconds(time);
@@ -42,7 +50,10 @@ namespace Bot
         }
 
 
-        public void update()
+        /// <summary>
+        /// Update the wheel speed.  Actual speed set depends on the requested speed and the requested time to speed.
+        /// </summary>
+        public void Update()
         {
             // Calculate the required speed, based on the requested speed and when it was requested for.
             // If the requested time has elapsed, just do it now
@@ -64,13 +75,18 @@ namespace Bot
             }
 
             // Apply the calculated speed to the wheel
-            setPower(CurrentSpeed);
+            SetPower(CurrentSpeed);
 
             LastUpdate = DateTime.Now;
         }
 
-        public void sleep()
+
+        /// <summary>
+        /// Put the wheel to sleep; sets speed to zero.
+        /// </summary>
+        public void Sleep()
         {
+            SetPower(0);
         }
 
 
@@ -81,7 +97,7 @@ namespace Bot
         /// Specifying zero will stop the wheel, and apply inductive breaking.
         /// </summary>
         /// <param name="power">The desired speed, from -100 to 100</param>
-        private void setPower(int power)
+        private void SetPower(int power)
         {
             // Set the direction of the wheels using the H-Bridge control lines
             if (power > 0) // forwards

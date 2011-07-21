@@ -6,11 +6,12 @@ namespace Bot
 {
     class AI
     {
-        private enum State
+        public enum AIState
         {
-            IDLE = 0,
-            CRUISING = 1,
-            APPROACH = 2
+            dead = 0,
+            idle = 1,
+            cruising = 2,
+            approach = 3
         }
 
         private const int MAX_DISTANCE = 1000;
@@ -21,9 +22,7 @@ namespace Bot
         private EyesController MyEyes;
         private NeckController MyNeck;
 
-        private bool KeepAlive = false;
-
-        private State CurrentState = State.IDLE;
+        private AIState CurrentState = AIState.idle;
         private DateTime LastUpdate = DateTime.Now;
         
         public AI()
@@ -33,15 +32,11 @@ namespace Bot
 
         #region Private Properties
 
-        public bool Alive
+        public AIState State
         {
             get
             {
-                return this.KeepAlive;
-            }
-            set
-            {
-                this.KeepAlive = true;
+                return CurrentState;
             }
         }
 
@@ -61,11 +56,11 @@ namespace Bot
         {
             get
             {
-                return this.MyEyes;
+                return MyEyes;
             }
             set
             {
-                this.MyEyes = value;
+                MyEyes = value;
             }
         }
 
@@ -77,7 +72,7 @@ namespace Bot
             }
             set
             {
-                this.MyNeck = value;
+                MyNeck = value;
             }
         }
 
@@ -86,33 +81,29 @@ namespace Bot
 
         public void wake()
         {
-            this.MyWheels.wake();
-            this.MyEyes.wake();
-            this.MyNeck.wake();
-            this.CurrentState = State.CRUISING;
-            this.KeepAlive = true;
+            MyWheels.Wake();
+            MyEyes.Wake();
+            MyNeck.Wake();
+            CurrentState = AIState.cruising;
         }
 
 
-        public void update()
+        public void Update()
         {
             // update inputs
-            this.MyEyes.update();
+            MyEyes.Update();
 
             // process data
-            this.think();
+            Think();
 
             // update outputs
-            this.MyNeck.update();
-            this.MyWheels.update();
+            MyWheels.Update();
         }
 
 
-        public void sleep()
+        public void Sleep()
         {
-            this.MyWheels.sleep();
-            this.MyEyes.sleep();
-            this.MyNeck.sleep();
+            MyWheels.Sleep();
         }
 
         /// <summary>
@@ -125,35 +116,39 @@ namespace Bot
         /// * APPROACH: Bot is aproaching an obstacle.
         ///             Response depends on rate-of-approach.
         /// </summary>
-        private void think()
+        private void Think()
         {
-            if (this.CurrentState == State.CRUISING)
+            if (CurrentState == AIState.cruising)
             {
-                double distance = this.MyEyes.distance();
+                double distance = MyEyes.Distance;
                 if (distance < 20)
                 {
-                    this.MyWheels.stop();
-                    this.findClosestBearing();
+                    MyWheels.Stop();
+                    FindClosestBearing();
                 }
                 else
                 {
-                    this.MyWheels.forward(100);
+                    MyWheels.SetSpeed(100);
                 }
             }
         }
 
 
-        public int findClosestBearing()
+        /// <summary>
+        /// Perform a sensor-sweep to locate the nearest object, and return it's bearing
+        /// </summary>
+        /// <returns>Angle to nearest object</returns>
+        public int FindClosestBearing()
         {
             int closestAngle = 0;
-            double distance = MAX_DISTANCE;
+            double distance = 0;
             double closestDistance = MAX_DISTANCE;
 
             for (int angle = -90; angle <= 90; angle += SCAN_ANGLE)
             {
-                MyNeck.setAngle(angle);
+                MyNeck.SetAngle(angle);
                 Thread.Sleep(50);
-                distance = MyEyes.ping();
+                distance = MyEyes.Ping();
                 if (distance < closestDistance)
                 {
                     Debug.Print("Closer object found at " + angle + " bearing and " + distance + " range");
@@ -163,7 +158,7 @@ namespace Bot
             }
 
             // return to previous position
-            MyNeck.setAngle(closestAngle);
+            MyNeck.SetAngle(closestAngle);
 
             Debug.Print("Closest object found at " + closestAngle + " bearing and " + closestDistance + " range");
             return closestAngle;
