@@ -42,5 +42,11 @@ namespace Bot.Libs
             return (((value - fromHigh) * NewRange) / OldRange) + toHigh;
         }
 
+
+        public static ulong TotalMilliseconds(TimeSpan ts)
+        {
+            return ((ulong)ts.Ticks) * TimeSpan.TicksPerMillisecond;
+        }
+
     }
 }

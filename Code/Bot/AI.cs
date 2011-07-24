@@ -12,12 +12,17 @@ namespace Bot
             idle = 1,
             cruising = 2,
             approach = 3,
-            scanning = 4
+            backup = 4,
+            backup_turn = 5,
+            scanning = 6
         }
 
         private const int MAX_DISTANCE = 1000;
         private const int MIN_DISTANCE = 0;
         private const int SCAN_ANGLE = 5;
+        private const int COLLIDE_DISTANCE = 20;
+        private const int CLEAR_DISTANCE = 25;
+        private const int TURN_TIME = 1000;
 
         private WheelsController MyWheels;
         private EyesController MyEyes;
@@ -26,6 +31,7 @@ namespace Bot
 
         private AIState CurrentState = AIState.idle;
         private DateTime LastUpdate = DateTime.Now;
+        private DateTime BackupTurnStarted = DateTime.MinValue;
         
         public AI()
         {
@@ -136,23 +142,52 @@ namespace Bot
         /// </summary>
         private void Think()
         {
-            if (CurrentState == AIState.cruising)
+            switch (CurrentState)
             {
-                double distance = MyEyes.Distance;
-                if (distance < 20)
-                {
-                    MyWheels.Stop();
-                    CurrentState = AIState.scanning;
-                }
-                else
-                {
-                    MyWheels.SetSpeed(100);
-                }
-            }
-            else if (CurrentState == AIState.scanning)
-            {
-                FindClosestBearing();
-                CurrentState = AIState.cruising;
+                case AIState.cruising:
+                    if (MyEyes.Distance < COLLIDE_DISTANCE)
+                    {
+                        Debug.Print("Obstacle detected! Backing up");
+                        MyWheels.Stop();
+                        CurrentState = AIState.backup;
+                        MyWheels.SetSpeed(-100);
+                    }
+                    else
+                    {
+                        MyWheels.SetSpeed(100);
+                    }
+                    break;
+
+                case AIState.backup:
+                    // reverse to clear object
+                    if (MyEyes.Distance > CLEAR_DISTANCE)
+                    {
+                        Debug.Print("Obstacle cleared! turning");
+                        CurrentState = AIState.backup_turn;
+                        BackupTurnStarted = DateTime.MinValue;
+                    }
+                    break;
+
+                case AIState.backup_turn:
+                    if (BackupTurnStarted == DateTime.MinValue)
+                    {
+                        Debug.Print("Starting turn");
+                        BackupTurnStarted = DateTime.Now;
+                        MyWheels.SetSpeed(WheelsController.Direction.left, -100);
+                    }
+                    else if (BackupTurnStarted.AddMilliseconds(TURN_TIME) < DateTime.Now)
+                    {
+                        Debug.Print("Done turning");
+                        CurrentState = AIState.cruising;
+                    }
+
+                    break;
+
+
+                case AIState.scanning:
+                    FindClosestBearing();
+                    CurrentState = AIState.cruising;
+                    break;
             }
         }
 

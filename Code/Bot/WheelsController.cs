@@ -13,6 +13,13 @@ namespace Bot
         private Wheel RightWheel;
         private DateTime LastUpdate;
 
+        public enum Direction
+        {
+            left = -1,
+            straight = 0,
+            right = 1
+        }
+
 
         public WheelsController(Cpu.Pin PinLA, Cpu.Pin PinLB, Cpu.Pin PinLP, Cpu.Pin PinRA, Cpu.Pin PinRB, Cpu.Pin PinRP)
         {
@@ -82,6 +89,28 @@ namespace Bot
         {
             LeftWheel.SetSpeed(speed, time);
             RightWheel.SetSpeed(speed, time);
+        }
+
+
+        public void SetSpeed(Direction direction, int speed = 100, ulong time = 0)
+        {
+            switch (direction)
+            {
+                case (Direction.left):
+                    LeftWheel.SetSpeed(-speed, time);
+                    RightWheel.SetSpeed(speed, time);
+                    break;
+
+                case (Direction.straight):
+                    LeftWheel.SetSpeed(speed, time);
+                    RightWheel.SetSpeed(speed, time);
+                    break;
+
+                case (Direction.right):
+                    LeftWheel.SetSpeed(speed, time);
+                    RightWheel.SetSpeed(-speed, time);
+                    break;
+            }
         }
 
     }

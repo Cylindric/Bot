@@ -27,6 +27,14 @@ namespace Bot
             ai.Eyes = new EyesController(Pins.GPIO_PIN_D8);
             ai.Display = new DisplayController(Pins.GPIO_PIN_D13, Pins.GPIO_PIN_D12, Pins.GPIO_PIN_D11);
 
+            //ai.Wheels.SetSpeed(100); ai.Wheels.Update(); Thread.Sleep(1000);
+            //ai.Wheels.SetSpeed(0); ai.Wheels.Update(); Thread.Sleep(1000);
+            //ai.Wheels.SetSpeed(-100); ai.Wheels.Update(); Thread.Sleep(1000);
+            //ai.Wheels.SetSpeed(0); ai.Wheels.Update(); Thread.Sleep(1000);
+            //ai.Wheels.SetSpeed(WheelsController.Direction.left, 100); ai.Wheels.Update(); Thread.Sleep(1000);
+            //ai.Wheels.SetSpeed(0); ai.Wheels.Update(); Thread.Sleep(1000);
+            //while (true) ;
+
             ai.wake();
 
             while (ai.State != AI.AIState.dead)
@@ -38,9 +46,9 @@ namespace Bot
                 if ((frameCount % 100) == 0)
                 {
                     runningTime = DateTime.Now - startTime;
-                    fps = (float)frameCount / runningTime.Milliseconds;
+                    fps = (float)frameCount / Tools.TotalMilliseconds(runningTime);
                     fps = fps * 1000;
-                    Debug.Print("FPS: " + frameCount + ": " + fps.ToString());
+                    //Debug.Print("FPS: " + frameCount + ": " + fps.ToString());
                     ledState = !ledState;
                 }
 
@@ -51,5 +59,10 @@ namespace Bot
 
         }
 
+
+
     }
+
+
+ 
 }

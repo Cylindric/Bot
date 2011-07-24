@@ -11,7 +11,7 @@ namespace Bot
         private Ping Eye;
         private double LastDistance = 0;
         private DateTime LastUpdate = DateTime.MinValue;
-        private TimeSpan UPDATE_FREQUENCY = new TimeSpan(0, 0, 1);
+        private TimeSpan UPDATE_FREQUENCY = new TimeSpan(0, 0, 0, 0, 500);
         private double RateOfChange = 0.0F;
 
         public EyesController(Cpu.Pin controlPin)
@@ -72,11 +72,11 @@ namespace Bot
         {
             double newDistance = Eye.GetDistance();
             double deltaDist = (LastDistance - newDistance);
-            double deltaTime = (LastUpdate - DateTime.Now).Milliseconds;
+            double deltaTime = Tools.TotalMilliseconds(LastUpdate - DateTime.Now);
 
-            RateOfChange = (deltaDist / deltaTime);
+            RateOfChange = (deltaDist / deltaTime)*1000;
             LastDistance = newDistance;
-            //Debug.Print("EYES: Distance: " + newDistance + ", Rate: " + RateOfChange);
+            Debug.Print("EYES: Distance: " + newDistance + ", Rate: " + RateOfChange);
             LastUpdate = DateTime.Now;
             return newDistance;
         }

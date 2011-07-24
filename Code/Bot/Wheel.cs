@@ -23,8 +23,8 @@ namespace Bot
 
         public Wheel(Cpu.Pin controlPortA, Cpu.Pin controlPortB, Cpu.Pin powerPort)
         {
-            MinPower = 50;
-            MaxPower = 100;
+            MinPower = 00;
+            MaxPower = 80;
             ControlPortA = new OutputPort(controlPortA, false);
             ControlPortB = new OutputPort(controlPortB, false);
             ControlPortP = new PWM(powerPort);
