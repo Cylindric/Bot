@@ -57,9 +57,15 @@ sky_sphere{ pigment{ gradient <0,1,0>
 //---------------------------- objects in scene ----------------------------
 //--------------------------------------------------------------------------
 
-difference {
-    cylinder { 0, 2*y, 60}
-    cylinder { -1*y, 3*y, 7.5}
-    pigment{LightGrey}
+#declare CD = object {
+    difference {
+        cylinder { 0, 2*y, 60}
+        cylinder { -1*y, 3*y, 7.5}
+        pigment{LightGrey}
+    }
 }
 
+
+object{CD}
+object{CD translate 13*y}
+object{CD translate 43*y}
