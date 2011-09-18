@@ -11,3 +11,4 @@ $savepcb.brd
 *.suo
 Code/*/bin
 Code/*/obj
+Hardware/Backup_of_*
