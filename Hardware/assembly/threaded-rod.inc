@@ -1,3 +1,7 @@
+#ifndef(Threaded_Rod_Inc_Temp)
+#declare Threaded_Rod_Inc_Temp=version;
+#version 3.7;
+
 #include "colors.inc"
 #include "metals.inc"
 
@@ -19,7 +23,7 @@
                     }
                 }
                 rotate 90*x
-                scale (Diameter/10)*y
+                scale <1, (Diameter/10), 1>
             }
         }
         cylinder{
@@ -31,7 +35,6 @@
 #end
 
 #ifndef(LIVE_SCENE)
-#version 3.7;
 global_settings{ assumed_gamma 1.0 }
 #default{ finish{ ambient 0.1 diffuse 0.9 }} 
 #include "tools.inc"
@@ -46,4 +49,7 @@ Test_Ground()
 object{ThreadedRod(2, 5) translate -5*x}
 object{ThreadedRod(3, 8)}
 object{ThreadedRod(4, 12) translate 7*x}
+#end
+
+#version Threaded_Rod_Inc_Temp;
 #end

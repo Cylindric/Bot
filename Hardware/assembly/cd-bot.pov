@@ -7,11 +7,14 @@ global_settings{ assumed_gamma 1.0 }
 #include "nut.inc"
 #include "hex-spacer.inc"
 #include "threaded-rod.inc"
+#include "micromotor.inc"
 //------------------------------------------------------------------------
 
 
 #declare CAM_DEFAULT=0;
 #declare CAM_ROD_BASE=1;
+#declare CAM_WHEEL_LEVEL=2;
+#declare CAM_BELOW=3;
 
 #declare CAM=0;
 
@@ -27,6 +30,15 @@ camera {
         #case (CAM_ROD_BASE)
             angle 4
             look_at <-30, 0, 0>
+        #break
+    
+        #case (CAM_WHEEL_LEVEL)
+            location  <0, 10, -800>
+            look_at <0, 10, 0>
+        #break
+    
+        #case (CAM_BELOW)
+            location  <0, -200, -800>
         #break
     
     #end
@@ -61,15 +73,15 @@ sky_sphere {
 
 
 union {
-    object {CD translate (Level0-CD_THICKNESS)*y}
-    object {CD translate (Level1-CD_THICKNESS)*y}
-    object {CD translate (Level2-CD_THICKNESS)*y}
+    object {CD() translate (Level0-CD_THICKNESS)*y}
+    object {CD() translate (Level1-CD_THICKNESS)*y}
+    object {CD() translate (Level2-CD_THICKNESS)*y}
     
     
     #declare rod=0;
     #while(rod < 4)
         union {
-            object {ThreadedRod(3, 75) translate -10*y} // Rod
+            object {ThreadedRod(3, 75) translate -5*y} // Rod
             
             object {Nut(3) translate (Level2)*y} // Top CD top nut
             object {Nut(3) translate (Level2-CD_THICKNESS-1.5)*y} // Top CD lower nut
@@ -85,5 +97,8 @@ union {
 
         #declare rod = rod + 1;
     #end
+    
+    object {MicroMotor() translate <-50, ((MICROMOT_HEIGHT*0.5)+(Level0)), 0>}
+    object {MicroMotor() translate <-50, ((MICROMOT_HEIGHT*0.5)+(Level0)), 0> rotate 180*y}
 
 }

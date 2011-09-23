@@ -1,3 +1,7 @@
+#ifndef(Hex_Spacer_Inc_Temp)
+#declare Hex_Spacer_Inc_Temp=version;
+#version 3.7;
+
 #include "shapes.inc"
 #include "shapes2.inc"
 
@@ -18,7 +22,6 @@
 #end
 
 #ifndef(LIVE_SCENE)
-#version 3.7;
 global_settings{ assumed_gamma 1.0 }
 #default{ finish{ ambient 0.1 diffuse 0.9 }} 
 #include "tools.inc"
@@ -33,4 +36,7 @@ Test_Ground()
 object{HexSpacer(2, 5) translate -5*x}
 object{HexSpacer(3, 8)}
 object{HexSpacer(4, 12) translate 7*x}
+#end
+
+#version Hex_Spacer_Inc_Temp;
 #end

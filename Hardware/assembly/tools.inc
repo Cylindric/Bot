@@ -1,3 +1,7 @@
+#ifndef(Tools_Inc_Temp)
+#declare Tools_Inc_Temp=version;
+#version 3.7;
+
 #macro Raster(RScale, HLine) 
     pigment{ gradient x scale RScale
         color_map{
@@ -42,4 +46,17 @@ sky_sphere {
         scale 2
     }
 }
+#end
+
+
+#macro Test_Origin()
+union {
+    cylinder {-1000*x, 1000*x, 0.5}
+    cylinder {-1000*y, 1000*y, 0.5}
+    cylinder {-1000*z, 1000*z, 0.5}
+    texture {pigment {colour rgb <1,1,0>}}
+}
+#end
+
+#version Tools_Inc_Temp;
 #end
