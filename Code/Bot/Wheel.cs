@@ -5,7 +5,7 @@ using SecretLabs.NETMF.Hardware;
 
 namespace Bot
 {
-    class Wheel
+    public class Wheel
     {
         private OutputPort ControlPortA;
         private OutputPort ControlPortB;
