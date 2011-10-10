@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Servo", "Test-Servo\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Wheels", "Test-Wheels\Test-Wheels.csproj", "{88066000-71BC-409C-98A6-4BB81BDB099E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Eye", "Test-Eye\Test-Eye.csproj", "{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +34,15 @@ Global
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88066000-71BC-409C-98A6-4BB81BDB099E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

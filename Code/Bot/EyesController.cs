@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Bot
 {
-    class EyesController
+    public class EyesController
     {
         private Ping Eye;
         private double LastDistance = 0;
