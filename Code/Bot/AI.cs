@@ -27,7 +27,7 @@ namespace Bot
         private WheelsController MyWheels;
         private EyesController MyEyes;
         private NeckController MyNeck;
-        private DisplayController MyDisplay;
+        //private DisplayController MyDisplay;
 
         private AIState CurrentState = AIState.idle;
         private DateTime LastUpdate = DateTime.Now;
@@ -84,17 +84,17 @@ namespace Bot
             }
         }
 
-        public DisplayController Display
-        {
-            get
-            {
-                return MyDisplay;
-            }
-            set
-            {
-                MyDisplay = value;
-            }
-        }
+        //public DisplayController Display
+        //{
+        //    get
+        //    {
+        //        return MyDisplay;
+        //    }
+        //    set
+        //    {
+        //        MyDisplay = value;
+        //    }
+        //}
 
         #endregion
 
@@ -104,7 +104,7 @@ namespace Bot
             MyWheels.Wake();
             MyEyes.Wake();
             MyNeck.Wake();
-            MyDisplay.Wake();
+            //MyDisplay.Wake();
             CurrentState = AIState.cruising;
         }
 
@@ -119,7 +119,7 @@ namespace Bot
 
             // update outputs
             MyWheels.Update();
-            MyDisplay.Update();
+            //MyDisplay.Update();
         }
 
 
@@ -150,7 +150,7 @@ namespace Bot
                         Debug.Print("Obstacle detected! Backing up");
                         MyWheels.Stop();
                         CurrentState = AIState.backup;
-                        MyWheels.SetSpeed(-100);
+                        MyWheels.SetSpeed(-25);
                     }
                     else
                     {
@@ -173,7 +173,7 @@ namespace Bot
                     {
                         Debug.Print("Starting turn");
                         BackupTurnStarted = DateTime.Now;
-                        MyWheels.SetSpeed(WheelsController.Direction.left, -100);
+                        MyWheels.SetSpeed(WheelsController.Direction.left, -25);
                     }
                     else if (BackupTurnStarted.AddMilliseconds(TURN_TIME) < DateTime.Now)
                     {

@@ -25,7 +25,7 @@ namespace Bot
             ai.Wheels = new WheelsController(GlobalPins.LEFT_WHEEL_PIN_A, GlobalPins.LEFT_WHEEL_PIN_B, GlobalPins.LEFT_WHEEL_PIN_P, GlobalPins.RIGHT_WHEEL_PIN_A, GlobalPins.RIGHT_WHEEL_PIN_B, GlobalPins.RIGHT_WHEEL_PIN_P);
             ai.Neck = new NeckController(GlobalPins.NECK_PIN);
             ai.Eyes = new EyesController(GlobalPins.EYE_PIN);
-//            ai.Display = new DisplayController(Pins.GPIO_PIN_D13, Pins.GPIO_PIN_D12, Pins.GPIO_PIN_D11);
+            //ai.Display = new DisplayController(Pins.GPIO_PIN_D13, Pins.GPIO_PIN_D12, Pins.GPIO_PIN_D11);
 
             //ai.Wheels.SetSpeed(100); ai.Wheels.Update(); Thread.Sleep(1000);
             //ai.Wheels.SetSpeed(0); ai.Wheels.Update(); Thread.Sleep(1000);
