@@ -4,7 +4,7 @@ using Microsoft.SPOT;
 using Microsoft.SPOT.Hardware;
 using SecretLabs.NETMF.Hardware;
 using SecretLabs.NETMF.Hardware.Netduino;
-using Bot.Libs;
+using Bot;
 
 namespace Test_Servo
 {
@@ -12,8 +12,8 @@ namespace Test_Servo
     {
         public static void Main()
         {
-            Servo_API.Servo servo = new Servo_API.Servo(Cpu.Pin.GPIO_Pin9);
-            while (false)
+            Servo_API.Servo servo = new Servo_API.Servo(GlobalPins.NECK_PIN);
+            while (true)
             {
                 for (int i = 0; i <= 180; i++)
                 {

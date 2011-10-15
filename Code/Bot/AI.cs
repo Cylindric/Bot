@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace Bot
 {
-    class AI
+    public class AI
     {
         public enum AIState
         {
@@ -19,7 +19,7 @@ namespace Bot
 
         private const int MAX_DISTANCE = 1000;
         private const int MIN_DISTANCE = 0;
-        private const int SCAN_ANGLE = 5;
+        private const int SCAN_ANGLE = 90;
         private const int COLLIDE_DISTANCE = 20;
         private const int CLEAR_DISTANCE = 25;
         private const int TURN_TIME = 1000;
@@ -205,7 +205,7 @@ namespace Bot
             for (int angle = -90; angle <= 90; angle += SCAN_ANGLE)
             {
                 MyNeck.SetAngle(angle);
-                Thread.Sleep(50);
+                Thread.Sleep(250);
                 distance = MyEyes.Ping();
                 if (distance < closestDistance)
                 {
@@ -215,7 +215,7 @@ namespace Bot
                 }
             }
 
-            // return to previous position
+            // look at closest
             MyNeck.SetAngle(closestAngle);
 
             Debug.Print("Closest object found at " + closestAngle + " bearing and " + closestDistance + " range");

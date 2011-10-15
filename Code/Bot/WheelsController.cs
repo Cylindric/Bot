@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Bot
 {
-    class WheelsController
+    public class WheelsController
     {
         private Wheel LeftWheel;
         private Wheel RightWheel;

@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Bot.Libs
 {
-    class Tools
+    public class Tools
     {
         /// <summary>
         /// Constrains the value to the specified bounds.

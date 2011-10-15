@@ -11,10 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Wheels", "Test-Wheels\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Eye", "Test-Eye\Test-Eye.csproj", "{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Neck", "Test-Neck\Test-Neck.csproj", "{8F839588-BEBC-4FA2-AE2C-8108422599B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-AI-Proximity", "Test-AI-Proximity\Test-AI-Proximity.csproj", "{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Test AI Proximity|Any CPU = Test AI Proximity|Any CPU
+		Test Neck|Any CPU = Test Neck|Any CPU
 		Test Wheels|Any CPU = Test Wheels|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
@@ -24,6 +30,10 @@ Global
 		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Test AI Proximity|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Test AI Proximity|Any CPU.Build.0 = TestNeck|Any CPU
+		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Test Neck|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Test Neck|Any CPU.Build.0 = TestNeck|Any CPU
 		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Test Wheels|Any CPU.ActiveCfg = Test Wheels|Any CPU
 		{692CA774-25BA-49EF-AAB5-E28B15807DC7}.Test Wheels|Any CPU.Build.0 = Test Wheels|Any CPU
 		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -31,6 +41,10 @@ Global
 		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Test AI Proximity|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Test AI Proximity|Any CPU.Build.0 = TestNeck|Any CPU
+		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Test Neck|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Test Neck|Any CPU.Build.0 = TestNeck|Any CPU
 		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Test Wheels|Any CPU.ActiveCfg = Test Wheels|Any CPU
 		{62EAF70F-2DBE-4D1A-BBDC-27DA47B439FC}.Test Wheels|Any CPU.Build.0 = Test Wheels|Any CPU
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -38,6 +52,10 @@ Global
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0252AD3B-EDE5-48F6-B153-54737904A729}.Test AI Proximity|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{0252AD3B-EDE5-48F6-B153-54737904A729}.Test AI Proximity|Any CPU.Build.0 = TestNeck|Any CPU
+		{0252AD3B-EDE5-48F6-B153-54737904A729}.Test Neck|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{0252AD3B-EDE5-48F6-B153-54737904A729}.Test Neck|Any CPU.Build.0 = TestNeck|Any CPU
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Test Wheels|Any CPU.ActiveCfg = Test Wheels|Any CPU
 		{0252AD3B-EDE5-48F6-B153-54737904A729}.Test Wheels|Any CPU.Build.0 = Test Wheels|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -45,6 +63,10 @@ Global
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test AI Proximity|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test AI Proximity|Any CPU.Build.0 = TestNeck|Any CPU
+		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test Neck|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test Neck|Any CPU.Build.0 = TestNeck|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test Wheels|Any CPU.ActiveCfg = Test Wheels|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test Wheels|Any CPU.Build.0 = Test Wheels|Any CPU
 		{88066000-71BC-409C-98A6-4BB81BDB099E}.Test Wheels|Any CPU.Deploy.0 = Test Wheels|Any CPU
@@ -53,8 +75,38 @@ Global
 		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Test AI Proximity|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Test AI Proximity|Any CPU.Build.0 = TestNeck|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Test Neck|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Test Neck|Any CPU.Build.0 = TestNeck|Any CPU
 		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Test Wheels|Any CPU.ActiveCfg = Test Wheels|Any CPU
 		{2EC7A9F9-BC30-49FB-BD45-F758CE0E6CC2}.Test Wheels|Any CPU.Build.0 = Test Wheels|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test AI Proximity|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test AI Proximity|Any CPU.Build.0 = TestNeck|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test Neck|Any CPU.ActiveCfg = TestNeck|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test Neck|Any CPU.Build.0 = TestNeck|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test Neck|Any CPU.Deploy.0 = TestNeck|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test Wheels|Any CPU.ActiveCfg = Release|Any CPU
+		{8F839588-BEBC-4FA2-AE2C-8108422599B4}.Test Wheels|Any CPU.Build.0 = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test AI Proximity|Any CPU.ActiveCfg = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test AI Proximity|Any CPU.Build.0 = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test AI Proximity|Any CPU.Deploy.0 = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test Neck|Any CPU.ActiveCfg = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test Neck|Any CPU.Build.0 = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test Wheels|Any CPU.ActiveCfg = Release|Any CPU
+		{E067C9CF-7119-4F31-BCE9-DCFB4AF13746}.Test Wheels|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

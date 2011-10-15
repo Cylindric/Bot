@@ -5,12 +5,10 @@ using System;
 
 namespace Bot
 {
-    class NeckController
+    public class NeckController
     {
         // calibration constants
-        private const int AHEAD = 95;
-        private const int LEFT = 60;
-        private const int RIGHT = 140;
+        private const int AHEAD = 80;
 
         private int CurrentAngle = 0;
         private int RequestedAngle = 0;
@@ -29,11 +27,11 @@ namespace Bot
         /// </summary>
         public void Wake()
         {
-            NeckServo.Degree = LEFT;
+            SetAngle(-30);
             Thread.Sleep(400);
-            NeckServo.Degree = RIGHT;
+            SetAngle(30);
             Thread.Sleep(400);
-            NeckServo.Degree = AHEAD;
+            SetAngle(0);
         }
 
         
@@ -68,7 +66,7 @@ namespace Bot
         /// <returns>Absolute neck angle</returns>
         private int DegreesToServo(int angle)
         {
-            return Tools.Constrain(AHEAD + angle, LEFT, RIGHT);
+            return Tools.Constrain(angle + AHEAD, 0, 180);
         }
 
     }
